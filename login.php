@@ -36,7 +36,7 @@
                         <input type="password" class="form-control" id="exampleInputPassword1" required>
                     </div>
                     <div>
-                        <a class="anchor" href="register.html">Don't Have an Account? Register Here...</a>
+                        <a class="anchor" href="register.php">Don't Have an Account? Register Here...</a>
                     </div>
                     <br>
                     <button type="submit" class="button">Login</button>
