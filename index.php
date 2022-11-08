@@ -104,7 +104,7 @@
                   <div class="right-menu">
                      <ul class="flex gap-10 text-sm">
                         <li class="hover:text-yellow-500 transition-all duration-75"><a href="login.php">SIGN IN</a></li>
-                        <li class="hover:text-yellow-500 transition-all duration-75"><a href="">PROFILE</a></li>
+                        <li class="hover:text-yellow-500 transition-all duration-75"><a href="profile-page.php">PROFILE</a></li>
                         <li class="hover:text-yellow-500 transition-all duration-75"><a href="">FEEDBACK</a></li>
                      </ul>
                   </div>

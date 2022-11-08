@@ -25,7 +25,7 @@
             </div>
 
             <div class="right">
-                <img id="khanas-logo" src="https://i.ibb.co/1qZfbwX/khanas.png" alt="">
+                <a href="index.php"><img id="khanas-logo" src="https://i.ibb.co/1qZfbwX/khanas.png" alt=""></a>
                 <h1>Register</h1>
 
                 <form>
@@ -48,7 +48,7 @@
                         <input type="password" class="form-control" id="exampleInputPassword1" required>
                     </div>
                     <div>
-                        <a class="anchor" href="login.html">Already Have an Account? Login Here...</a>
+                        <a class="anchor" href="login.php">Already Have an Account? Login Here...</a>
                     </div>
                     <br>
                     <button type="submit" class="button">Register</button>

@@ -22,7 +22,7 @@
             </div>
 
             <div class="right">
-                <img id="khanas-logo" src="https://i.ibb.co/1qZfbwX/khanas.png" alt="">
+                <a href="index.php"><img id="khanas-logo" src="https://i.ibb.co/1qZfbwX/khanas.png" alt=""></a>
                 <h1>Login</h1>
                 
                 <form>

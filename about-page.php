@@ -100,13 +100,13 @@
                <button><img class="hover:scale-110 transition-all" src="images/close.svg" alt="" /></button>
             </div>
             <ul class="flex flex-col gap-7 justify-center items-center h-full">
-               <li class=""><a class="hover:text-yellow-500 transition-all duration-75" href="">HOME</a></li>
+               <li class=""><a class="hover:text-yellow-500 transition-all duration-75" href="index.php">HOME</a></li>
                <li><div class="h-[1px] w-[280px] bg-white rounded"></div></li>
-               <li class=""><a class="hover:text-yellow-500 transition-all duration-75" href="">ABOUT</a></li>
+               <li class=""><a class="hover:text-yellow-500 transition-all duration-75" href="about-page.php">ABOUT</a></li>
                <li><div class="h-[1px] w-[280px] bg-white rounded"></div></li>
-               <li class=""><a class="hover:text-yellow-500 transition-all duration-75" href="">CONTACT</a></li>
+               <li class=""><a class="hover:text-yellow-500 transition-all duration-75" href="contact-us.php">CONTACT</a></li>
                <li><div class="h-[1px] w-[280px] bg-white rounded"></div></li>
-               <li class=""><a class="hover:text-yellow-500 transition-all duration-75" href="">PROFILE</a></li>
+               <li class=""><a class="hover:text-yellow-500 transition-all duration-75" href="profile-page.php">PROFILE</a></li>
                <li><div class="h-[1px] w-[280px] bg-white rounded"></div></li>
                <li class=""><a class="hover:text-yellow-500 transition-all duration-75" href="">ORDER</a></li>
                <li><div class="h-[1px] w-[280px] bg-white rounded"></div></li>
@@ -236,10 +236,10 @@
                         <div class="h-[2px] w-[100px] bg-white my-4 rounded"></div>
 
                         <ul class="flex flex-col gap-2 justify-center">
-                           <li><a href="">HOME</a></li>
-                           <li><a href="">ABOUT</a></li>
-                           <li><a href="">CONTACT</a></li>
-                           <li><a href="">PROFILE</a></li>
+                           <li><a href="index.php">HOME</a></li>
+                           <li><a href="about-page.php">ABOUT</a></li>
+                           <li><a href="contact-us.php">CONTACT</a></li>
+                           <li><a href="profile-page.php">PROFILE</a></li>
                            <li><a href="">ORDER</a></li>
                            <li><a href="">FEEDBACK</a></li>
                            <li><a href="">RESERVATION</a></li>
