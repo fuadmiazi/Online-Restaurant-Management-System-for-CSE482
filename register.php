@@ -1,3 +1,45 @@
+<?php
+
+session_start();
+
+//variable declaration
+$host = "localhost:8000"; 
+$user = "root";
+$dbname = "khanas";
+$password = "";
+$errors = array();
+
+$conn = new mysqli($host, $user, $dbname, $password);
+
+if($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// User Register 
+if(isset($_POST['name'])) {
+    //receiving user inputs
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $pass = $_POST['password'];
+
+    $pass = password_hash($password, PASSWORD_DEFAULT);
+
+    $sql = "INSERT INTO users (name, phone, email, password) VALUES('$name', '$phone', '$email', '$pass')";
+
+    if($conn->query($sql) === TRUE) {
+        $_SESSION['message'] = "Registration Successfull!";
+        header('location: localhost:8000/login.php/?error=false');
+    }
+    else {
+        $_SESSION['message']="Registration Failed!";
+        header('location: localhost:8000/register.php/?error=true');
+    }
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,31 +70,31 @@
                 <a href="index.php"><img id="khanas-logo" src="https://i.ibb.co/1qZfbwX/khanas.png" alt=""></a>
                 <h1>Register</h1>
 
-                <form>
+                <form method="POST" action="register.php">
                     <div class="mb-3">
                         <label class="form-label">Full Name</label>
-                        <input type="text" id="fullname" name="fullname" class="form-control" placeholder="John Doe"
+                        <input type="text" id="fullname" name="name" class="form-control" placeholder="John Doe"
                             required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Phone Number</label>
-                        <input type="tel" class="form-control" placeholder="8801518442776" required>
+                        <input type="tel" name="phone" class="form-control" placeholder="01712569875" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                             placeholder="example@email.com" required>
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" required>
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
                     </div>
                     <div>
                         <a class="anchor" href="login.php">Already Have an Account? Login Here...</a>
                     </div>
                     <br>
-                    <button type="submit" class="button">Register</button>
+                    <button type="submit" value="Register" name="register" class="button">Register</button>
                 </form>
             </div>
 
