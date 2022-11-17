@@ -134,20 +134,23 @@
     </div>
 
     <div class="scroll-container h-screen w-screen flex flex-col">
-        <section class="scroll-child contact-us h-[145vh] bg-[#282421] w-screen relative">
-            <div class="profile flex flex-col justify-center items-center mt-[100px] gap-32">
-                <div class="pic-name-profile flex justify-center items-center gap-14">
+        <section class="scroll-child contact-us h-fit bg-[#282421] w-screen relative">
+            <div class="profile flex flex-col justify-center items-center mt-[100px] mb-[150px]">
+                <div class="pic-name-profile flex justify-center items-center gap-14 mb-32">
                     <div class="profile-pic">
-                        <img class="rounded-full w-[250px] h-[250px] object-cover" src="images/propic.jpg" alt="" />
+                        <img class="rounded-full w-[250px] h-[250px] object-cover object-top" src="images/propic.jpg"
+                            alt="" />
                     </div>
                     <div class="profile-name text-white">
                         <div class="mb-4 flex items-center gap-6">
                             <p class="title text-4xl border-white border-2 w-fit">Rafid Ahmmad</p>
                             <div class="btn">
-                                <button
-                                    class="text-white border-2 w-[190px] py-2 uppercase transition-all duration-100 hover:bg-gray-200 hover:bg-opacity-70 hover:font-medium hover:text-neutral-900">
-                                    Edit Profile
-                                </button>
+                                <a href="edit-profile.php"><button
+                                        class="text-white border-2 w-[190px] py-2 uppercase transition-all duration-100 hover:bg-gray-200 hover:bg-opacity-70 hover:font-medium hover:text-neutral-900">
+                                        Edit Profile
+                                    </button></a>
+
+
                             </div>
                         </div>
 
@@ -166,8 +169,210 @@
                     </div>
                 </div>
 
-                <div class="prev-card text-white">
-                    <p class="text-2xl mb-12 text-center font-medium">Previous Orders</p>
+                <div class="prev-card text-white scroll-child pt-10 mb-20">
+                    <p class="text-2xl mb-12 text-center font-medium">Previous Delivery Orders</p>
+                    <div class="order-cards grid grid-cols-4 gap-8">
+                        <div
+                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
+                                    alt="" style="object-position: 20% 75%" />
+                                <div class="p-5">
+                                    <p class="font-medium">Chicken Cheese Burger</p>
+                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit.
+                                        Labore.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div
+                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
+                                    alt="" style="object-position: 20% 75%" />
+                                <div class="p-5">
+                                    <p class="font-medium">Chicken Cheese Burger</p>
+                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit.
+                                        Labore.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div
+                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
+                                    alt="" style="object-position: 20% 75%" />
+                                <div class="p-5">
+                                    <p class="font-medium">Chicken Cheese Burger</p>
+                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit.
+                                        Labore.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div
+                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
+                                    alt="" style="object-position: 20% 75%" />
+                                <div class="p-5">
+                                    <p class="font-medium">Chicken Cheese Burger</p>
+                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit.
+                                        Labore.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div
+                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
+                                    alt="" style="object-position: 20% 75%" />
+                                <div class="p-5">
+                                    <p class="font-medium">Chicken Cheese Burger</p>
+                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit.
+                                        Labore.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div
+                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
+                                    alt="" style="object-position: 20% 75%" />
+                                <div class="p-5">
+                                    <p class="font-medium">Chicken Cheese Burger</p>
+                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit.
+                                        Labore.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div
+                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
+                                    alt="" style="object-position: 20% 75%" />
+                                <div class="p-5">
+                                    <p class="font-medium">Chicken Cheese Burger</p>
+                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit.
+                                        Labore.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div
+                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
+                                    alt="" style="object-position: 20% 75%" />
+                                <div class="p-5">
+                                    <p class="font-medium">Chicken Cheese Burger</p>
+                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit.
+                                        Labore.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="prev-card text-white scroll-child  pt-10 mb-20">
+                    <p class="text-2xl mb-12 text-center font-medium">Previous Pre-Orders</p>
+                    <div class="order-cards grid grid-cols-4 gap-8">
+                        <div
+                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
+                                    alt="" style="object-position: 20% 75%" />
+                                <div class="p-5">
+                                    <p class="font-medium">Chicken Cheese Burger</p>
+                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit.
+                                        Labore.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div
+                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
+                                    alt="" style="object-position: 20% 75%" />
+                                <div class="p-5">
+                                    <p class="font-medium">Chicken Cheese Burger</p>
+                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit.
+                                        Labore.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div
+                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
+                                    alt="" style="object-position: 20% 75%" />
+                                <div class="p-5">
+                                    <p class="font-medium">Chicken Cheese Burger</p>
+                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit.
+                                        Labore.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div
+                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
+                                    alt="" style="object-position: 20% 75%" />
+                                <div class="p-5">
+                                    <p class="font-medium">Chicken Cheese Burger</p>
+                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit.
+                                        Labore.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div
+                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
+                                    alt="" style="object-position: 20% 75%" />
+                                <div class="p-5">
+                                    <p class="font-medium">Chicken Cheese Burger</p>
+                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit.
+                                        Labore.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div
+                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
+                                    alt="" style="object-position: 20% 75%" />
+                                <div class="p-5">
+                                    <p class="font-medium">Chicken Cheese Burger</p>
+                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit.
+                                        Labore.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div
+                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
+                                    alt="" style="object-position: 20% 75%" />
+                                <div class="p-5">
+                                    <p class="font-medium">Chicken Cheese Burger</p>
+                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit.
+                                        Labore.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div
+                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
+                                    alt="" style="object-position: 20% 75%" />
+                                <div class="p-5">
+                                    <p class="font-medium">Chicken Cheese Burger</p>
+                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit.
+                                        Labore.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="prev-card text-white scroll-child  pt-10">
+                    <p class="text-2xl mb-12 text-center font-medium">Previous Reservations</p>
                     <div class="order-cards grid grid-cols-4 gap-8">
                         <div
                             class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
