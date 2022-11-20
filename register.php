@@ -3,13 +3,13 @@
 session_start();
 
 //variable declaration
-$host = "localhost:8000"; 
+$host = "localhost:3306"; 
 $user = "root";
 $dbname = "khanas";
 $password = "";
 $errors = array();
 
-$conn = new mysqli($host, $user, $dbname, $password);
+$conn = new mysqli($host, $user, $password, $dbname);
 
 if($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -26,7 +26,7 @@ if(isset($_POST['name'])) {
     $pass = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO users (name, phone, email, password) VALUES('$name', '$phone', '$email', '$pass')";
-
+    echo "$conn->query($sql)";
     if($conn->query($sql) === TRUE) {
         $_SESSION['message'] = "Registration Successfull!";
         header('location: localhost:8000/login.php/?error=false');

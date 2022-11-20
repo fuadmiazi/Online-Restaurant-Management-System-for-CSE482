@@ -1,26 +1,26 @@
 <?php
 
-$host = "localhost:8000";
-$user = "root";
-$password = "";
-$db = "khanas";
+// $host = "localhost:3306";
+// $user = "root";
+// $password = "";
+// $db = "khanas";
 
-$conn = new mysqli($host, $user, $password, $db);
+// $conn = new mysqli($host, $user, $password, $db);
 
-if(isset($_POST[email])){
-    $email = $_POST[email];
-    $pass = $_POST[password];
+// if(isset($_POST[email])){
+//     $email = $_POST[email];
+//     $pass = $_POST[password];
 
-    $sql = "select * from users where email='$email'";
+//     $sql = "select * from users where email='$email'";
 
-    $result = $conn->query($sql);
+//     $result = $conn->query($sql);
 
-    if($result->num_rows == 1) {
-        $row = $result->fetch_assoc();
+//     if($result->num_rows == 1) {
+//         $row = $result->fetch_assoc();
 
-        if()
-    }
-}
+//         if()
+//     }
+// }
 
 ?>
 
