@@ -28,8 +28,10 @@ if(isset($_POST['name'])) {
     $sql = "INSERT INTO users (name, phone, email, password) VALUES('$name', '$phone', '$email', '$pass')";
     echo "$conn->query($sql)";
     if($conn->query($sql) === TRUE) {
-        $_SESSION['message'] = "Registration Successfull!";
-        header('location: localhost:8000/login.php/?error=false');
+        $_SESSION['message'] = "Registration Successful!";
+        header('Location: http://localhost:8000/login.php');
+        exit();
+
     }
     else {
         $_SESSION['message']="Registration Failed!";
