@@ -64,7 +64,7 @@ if(isset($_POST['name'])) {
         <div class="main-container shadow-lg p-3 mb-5 bg-body rounded">
             <div class="left">
                 <h1>Welcome To Khanas</h1>
-                <img src="https://scontent.fdac23-1.fna.fbcdn.net/v/t1.18169-9/12742451_428177810714234_232147840978453377_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=174925&_nc_ohc=4HFpj4l_QckAX-7nb14&_nc_ht=scontent.fdac23-1.fna&oh=00_AT8szYsHXmDPCTkvduyKYOqyVv0fTwf7_V4TJm1Vjey59g&oe=637D1C66"
+                <img src="https://scontent.fdac23-1.fna.fbcdn.net/v/t39.30808-6/313082936_1965787560286577_1628835062817217903_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=xjeZiJ_fuzYAX8zE9Ac&_nc_ht=scontent.fdac23-1.fna&oh=00_AfDx9avFXk-A2j1oyxfSkS8pW8Kj55T8smLriecmJI2rZA&oe=6384F8AC"
                     alt="">
             </div>
 

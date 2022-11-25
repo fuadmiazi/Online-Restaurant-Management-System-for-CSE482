@@ -22,8 +22,8 @@ body {
 }
 
 .left img {
-    width: 95%;
-    height: 95%;
+    width: 80%;
+    height: 80%;
     object-fit: cover;
     overflow: hidden;
 }
