@@ -38,7 +38,7 @@ if (isset($_POST['reg_user'])) {
   	mysqli_query($db, $query);
   	$_SESSION['name'] = $name;
   	$_SESSION['success'] = "You are now logged in";
-  	header('location: login.php');
+  	header('location: index.php');
   }
 }
 
@@ -56,7 +56,7 @@ if (isset($_POST['login_user'])) {
           $_SESSION['success'] = "You are now logged in";
           header('location: index.php');
         }else {
-            array_push($errors, "Wrong email/password combination");
+            array_push($errors, "Wrong email or password combination");
         }
     }
   }

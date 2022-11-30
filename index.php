@@ -1,20 +1,16 @@
-<?php
-//   session_start(); 
+<?php 
+  session_start(); 
 
-//   if (!isset($_SESSION['username'])) {
-//   	$_SESSION['msg'] = "You must log in first";
-//   	header('location: login.php');
-//   }
-//   if (isset($_GET['logout'])) {
-//   	session_destroy();
-//   	unset($_SESSION['username']);
-//   	header("location: login.php");
-//   }
+  if (!isset($_SESSION['name'])) {
+  	$_SESSION['msg'] = "You must log in first";
+  	header('location: login.php');
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['name']);
+  	header("location: login.php");
+  }
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -107,6 +103,28 @@
 </head>
 
 <body class="bg-[#E8C07D] overflow-x-hidden">
+
+<div>
+  	<!-- notification message -->
+  	<?php if (isset($_SESSION['success'])) : ?>
+      <div class="error success" >
+      	<h3>
+          <?php 
+          	echo $_SESSION['success']; 
+          	unset($_SESSION['success']);
+          ?>
+      	</h3>
+      </div>
+  	<?php endif ?>
+
+    <!-- logged in user information -->
+    <?php  if (isset($_SESSION['name'])) : ?>
+    	<p>Welcome <strong><?php echo $_SESSION['name']; ?></strong></p>
+    	<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
+    <?php endif ?>
+</div>
+
+
     <div class="scroll-container h-screen w-screen flex flex-col">
         <section class="scroll-child w-screen h-screen">
             <nav class="text-white h-[84.5px] font-medium absolute w-screen z-10 mt-10">
