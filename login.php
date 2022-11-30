@@ -7,7 +7,7 @@ $db = "khanas";
 
 $conn = mysqli_connect($host, $user, $password, $db);
 
-if(isset ($_POST['log_user'])) {
+if(isset ($_POST['email'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
 
     $password = mysqli_real_escape_string($conn, $_POST['password']);
@@ -77,6 +77,7 @@ if(isset ($_POST['log_user'])) {
                 <h1>Login</h1>
 
                 <form method="POST" action="login.php">
+                    <?php include('errors.php'); ?>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
                         <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -91,7 +92,7 @@ if(isset ($_POST['log_user'])) {
                         <a class="anchor" href="register.php">Don't Have an Account? Register Here...</a>
                     </div>
                     <br>
-                    <button type="submit" class="button" name="log_user">Login</button>
+                    <button type="submit" class="button">Login</button>
                 </form>
             </div>
 

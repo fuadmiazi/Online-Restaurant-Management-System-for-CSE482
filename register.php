@@ -23,7 +23,7 @@ if(isset($_POST['name'])) {
     $email = $_POST['email'];
     $pass = $_POST['password'];
 
-    $pass = password_hash($password, PASSWORD_DEFAULT);
+    $pass = md5($pass);
 
     $sql = "INSERT INTO users (name, phone, email, password) VALUES('$name', '$phone', '$email', '$pass')";
     echo "$conn->query($sql)";
@@ -73,6 +73,7 @@ if(isset($_POST['name'])) {
                 <h1>Register</h1>
 
                 <form method="POST" action="register.php">
+                    <?php include('errors.php'); ?>
                     <div class="mb-3">
                         <label class="form-label">Full Name</label>
                         <input type="text" id="fullname" name="name" class="form-control" placeholder="John Doe"
