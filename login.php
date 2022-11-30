@@ -1,49 +1,5 @@
 <?php
 
-// $host = "localhost:3306";
-// $user = "root";
-// $password = "";
-// $db = "khanas";
-
-// $conn = mysqli_connect($host, $user, $password, $db);
-
-// if(isset ($_POST['email'])) {
-//     $email = mysqli_real_escape_string($conn, $_POST['email']);
-
-//     $password = mysqli_real_escape_string($conn, $_POST['password']);
-
-//     if(count($errors) == 0) {
-//         $password = md5($password);
-//         $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
-//         $results = mysqli_query($conn, $query);
-
-//         if(mysqli_num_rows($results) == 1) {
-//             $_SESSION['email'] = $email;
-//             $_SESSION['success'] = "You are now logged in";
-//             header('Location: index.php');
-//         }
-
-//         else {
-//             array_push($errors, "Wrong username/password combination");
-//         }
-//     }
-// }
-
-// if(isset($_POST[email])){
-//     $email = $_POST[email];
-//     $pass = $_POST[password];
-
-//     $sql = "select * from users where email='$email'";
-
-//     $result = $conn->query($sql);
-
-//     if($result->num_rows == 1) {
-//         $row = $result->fetch_assoc();
-
-//         if()
-//     }
-// }
-
 include('server.php')
 
 ?>

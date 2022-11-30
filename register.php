@@ -1,44 +1,5 @@
 <?php
 
-// session_start();
-
-// //variable declaration
-// $host = "localhost:3306"; 
-// $user = "root";
-// $dbname = "khanas";
-// $password = "";
-// $errors = array();
-
-// $conn = new mysqli($host, $user, $password, $dbname);
-
-// if($conn->connect_error) {
-//     die("Connection failed: " . $conn->connect_error);
-// }
-
-// // User Register 
-// if(isset($_POST['name'])) {
-//     //receiving user inputs
-//     $name = $_POST['name'];
-//     $phone = $_POST['phone'];
-//     $email = $_POST['email'];
-//     $pass = $_POST['password'];
-
-//     $pass = md5($pass);
-
-//     $sql = "INSERT INTO users (name, phone, email, password) VALUES('$name', '$phone', '$email', '$pass')";
-//     echo "$conn->query($sql)";
-//     if($conn->query($sql) === TRUE) {
-//         $_SESSION['message'] = "Registration Successful!";
-//         header('Location: http://localhost:8000/login.php');
-//         exit();
-
-//     }
-//     else {
-//         $_SESSION['message']="Registration Failed!";
-//         header('location: localhost:8000/register.php/?error=true');
-//     }
-// }
-
 include('server.php')
 
 ?>
