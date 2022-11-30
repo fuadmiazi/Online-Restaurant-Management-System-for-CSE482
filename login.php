@@ -1,11 +1,33 @@
 <?php
 
-// $host = "localhost:3306";
-// $user = "root";
-// $password = "";
-// $db = "khanas";
+$host = "localhost:3306";
+$user = "root";
+$password = "";
+$db = "khanas";
 
-// $conn = new mysqli($host, $user, $password, $db);
+$conn = mysqli_connect($host, $user, $password, $db);
+
+if(isset ($_POST['log_user'])) {
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+
+    if(count($errors) == 0) {
+        $password = md5($password);
+        $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+        $results = mysqli_query($conn, $query);
+
+        if(mysqli_num_rows($results) == 1) {
+            $_SESSION['email'] = $email;
+            $_SESSION['success'] = "You are now logged in";
+            header('Location: index.php');
+        }
+
+        else {
+            array_push($errors, "Wrong username/password combination");
+        }
+    }
+}
 
 // if(isset($_POST[email])){
 //     $email = $_POST[email];
@@ -69,7 +91,7 @@
                         <a class="anchor" href="register.php">Don't Have an Account? Register Here...</a>
                     </div>
                     <br>
-                    <button type="submit" class="button">Login</button>
+                    <button type="submit" class="button" name="log_user">Login</button>
                 </form>
             </div>
 
