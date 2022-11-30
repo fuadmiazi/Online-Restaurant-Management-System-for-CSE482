@@ -1,4 +1,4 @@
-<?php 
+<?php
 //   session_start(); 
 
 //   if (!isset($_SESSION['username'])) {
@@ -390,62 +390,4 @@
                      id="Union"
                      fill-rule="evenodd"
                      clip-rule="evenodd"
-                     d="M2513.5 0H0V1690H356C784.4 1690 1056.5 2047 1139 2225.5V2220.73C1390.79 2724.82 1911.72 3071 2513.5 3071C3134.23 3071 3668.94 2702.67 3910.98 2172.65C3998.27 2010.48 4208.9 1754.27 4525.09 1690H5026V0H2513.5Z"
-                     fill="#614124"
-                  />
-                  <a href="#">
-                     <g id="MainLogo" class="hover:scale-105 origin-center transition-all duration-200">
-                        <rect
-                           id="image 2"
-                           x="1435"
-                           y="458"
-                           width="2156"
-                           height="2156"
-                           rx="1078"
-                           fill="url(#pattern0)"
-                           stroke="#614124"
-                           stroke-width="2"
-                        />
-                     </g>
-                  </a>
-               </g>
-               <defs>
-                  <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                     <use xlink:href="#image0_2_11" transform="scale(0.000712251)" />
-                  </pattern>
-                  <image id="image0_2_11" href="images/sm-logo.png" width="1404" height="1404" />
-               </defs>
-            </svg> -->
-
-<!-- <footer class="w-screen bg-[#3D3937] text-white">
-               <div class="footer-inner">
-                  <div class="top-footer">
-                     <div class="left-footer">
-                        <ul>
-                           <li class="flex gap-3 justify-center items-start">
-                              <img class="w-7" src="images/google-maps.png" alt="" />
-                              <p class="w-[350px]">
-                                 442 New Apolo Road, Dhalibari Road, Vatara, Bashundhara Residential Area, Dhaka-1229, Bangladesh
-                              </p>
-                           </li>
-                           <li></li>
-                           <li></li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="middle-line flex justify-center items-center h-[2px] w-[80%] bg-gray-200 rounded mx-auto my-10"></div>
-                  <div class="footer-btm-outer my-10">
-                     <div class="bottom-footer">
-                        <ul class="flex gap-32 justify-between items-center mx-auto w-[80%]">
-                           <li><a href="">HOME</a></li>
-                           <li><a href="">ABOUT</a></li>
-                           <li><a href="">CONTACT</a></li>
-                           <li><a href="">PROFILE</a></li>
-                           <li><a href="">ORDER</a></li>
-                           <li><a href="">FEEDBACK</a></li>
-                           <li><a href="">RESERVATION</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </footer> -->
+                     d="M
