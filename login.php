@@ -1,33 +1,33 @@
 <?php
 
-$host = "localhost:3306";
-$user = "root";
-$password = "";
-$db = "khanas";
+// $host = "localhost:3306";
+// $user = "root";
+// $password = "";
+// $db = "khanas";
 
-$conn = mysqli_connect($host, $user, $password, $db);
+// $conn = mysqli_connect($host, $user, $password, $db);
 
-if(isset ($_POST['email'])) {
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
+// if(isset ($_POST['email'])) {
+//     $email = mysqli_real_escape_string($conn, $_POST['email']);
 
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
+//     $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-    if(count($errors) == 0) {
-        $password = md5($password);
-        $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
-        $results = mysqli_query($conn, $query);
+//     if(count($errors) == 0) {
+//         $password = md5($password);
+//         $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+//         $results = mysqli_query($conn, $query);
 
-        if(mysqli_num_rows($results) == 1) {
-            $_SESSION['email'] = $email;
-            $_SESSION['success'] = "You are now logged in";
-            header('Location: index.php');
-        }
+//         if(mysqli_num_rows($results) == 1) {
+//             $_SESSION['email'] = $email;
+//             $_SESSION['success'] = "You are now logged in";
+//             header('Location: index.php');
+//         }
 
-        else {
-            array_push($errors, "Wrong username/password combination");
-        }
-    }
-}
+//         else {
+//             array_push($errors, "Wrong username/password combination");
+//         }
+//     }
+// }
 
 // if(isset($_POST[email])){
 //     $email = $_POST[email];
@@ -43,6 +43,8 @@ if(isset ($_POST['email'])) {
 //         if()
 //     }
 // }
+
+include('server.php')
 
 ?>
 
@@ -68,7 +70,7 @@ if(isset ($_POST['email'])) {
         <div class="main-container shadow-lg p-3 mb-5 bg-body rounded">
             <div class="left">
                 <h1>Welcome To Khanas</h1>
-                <img src="https://scontent.fdac23-1.fna.fbcdn.net/v/t39.30808-6/313200983_1967534753445191_6001449154010436583_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=WE-ZXWhhnEAAX_1CLUO&_nc_ht=scontent.fdac23-1.fna&oh=00_AfBrb3_HoF-0Q6fddZRoEm2wm1Ap_hyhlp-LglJ9TkAEEw&oe=63864FC6"
+                <img src="images/login-regi.jpg"
                     alt="">
             </div>
 
@@ -92,7 +94,7 @@ if(isset ($_POST['email'])) {
                         <a class="anchor" href="register.php">Don't Have an Account? Register Here...</a>
                     </div>
                     <br>
-                    <button type="submit" class="button">Login</button>
+                    <button type="submit" class="button" name="login_user">Login</button>
                 </form>
             </div>
 

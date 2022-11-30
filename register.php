@@ -1,44 +1,45 @@
 <?php
 
-session_start();
+// session_start();
 
-//variable declaration
-$host = "localhost:3306"; 
-$user = "root";
-$dbname = "khanas";
-$password = "";
-$errors = array();
+// //variable declaration
+// $host = "localhost:3306"; 
+// $user = "root";
+// $dbname = "khanas";
+// $password = "";
+// $errors = array();
 
-$conn = new mysqli($host, $user, $password, $dbname);
+// $conn = new mysqli($host, $user, $password, $dbname);
 
-if($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// if($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
 
-// User Register 
-if(isset($_POST['name'])) {
-    //receiving user inputs
-    $name = $_POST['name'];
-    $phone = $_POST['phone'];
-    $email = $_POST['email'];
-    $pass = $_POST['password'];
+// // User Register 
+// if(isset($_POST['name'])) {
+//     //receiving user inputs
+//     $name = $_POST['name'];
+//     $phone = $_POST['phone'];
+//     $email = $_POST['email'];
+//     $pass = $_POST['password'];
 
-    $pass = md5($pass);
+//     $pass = md5($pass);
 
-    $sql = "INSERT INTO users (name, phone, email, password) VALUES('$name', '$phone', '$email', '$pass')";
-    echo "$conn->query($sql)";
-    if($conn->query($sql) === TRUE) {
-        $_SESSION['message'] = "Registration Successful!";
-        header('Location: http://localhost:8000/login.php');
-        exit();
+//     $sql = "INSERT INTO users (name, phone, email, password) VALUES('$name', '$phone', '$email', '$pass')";
+//     echo "$conn->query($sql)";
+//     if($conn->query($sql) === TRUE) {
+//         $_SESSION['message'] = "Registration Successful!";
+//         header('Location: http://localhost:8000/login.php');
+//         exit();
 
-    }
-    else {
-        $_SESSION['message']="Registration Failed!";
-        header('location: localhost:8000/register.php/?error=true');
-    }
-}
+//     }
+//     else {
+//         $_SESSION['message']="Registration Failed!";
+//         header('location: localhost:8000/register.php/?error=true');
+//     }
+// }
 
+include('server.php')
 
 ?>
 
@@ -64,7 +65,7 @@ if(isset($_POST['name'])) {
         <div class="main-container shadow-lg p-3 mb-5 bg-body rounded">
             <div class="left">
                 <h1>Welcome To Khanas</h1>
-                <img src="https://scontent.fdac23-1.fna.fbcdn.net/v/t39.30808-6/313082936_1965787560286577_1628835062817217903_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=xjeZiJ_fuzYAX8zE9Ac&_nc_ht=scontent.fdac23-1.fna&oh=00_AfDx9avFXk-A2j1oyxfSkS8pW8Kj55T8smLriecmJI2rZA&oe=6384F8AC"
+                <img src="images/login-regi.jpg"
                     alt="">
             </div>
 
@@ -97,7 +98,7 @@ if(isset($_POST['name'])) {
                         <a class="anchor" href="login.php">Already Have an Account? Login Here...</a>
                     </div>
                     <br>
-                    <button type="submit" value="Register" name="register" class="button">Register</button>
+                    <button type="submit" value="Register" name="reg_user" class="button">Register</button>
                 </form>
             </div>
 
