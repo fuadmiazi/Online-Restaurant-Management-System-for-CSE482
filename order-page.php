@@ -248,7 +248,7 @@
                             <p class="font-medium text-center">' . $row["name"] . '</p>
                             <hr class="mt-5" />
                             <div class="flex text-sm justify-between items-center mt-5 font-bold">
-                                <p>Price: ' . $row["price"] . '</p>
+                                <p>Price: ' . $row["price"] . '$</p>
                                 <p>Ordered: ' . $row["ordered"] . '</p>
                             </div>
                             <div class="flex justify-center items-center">
