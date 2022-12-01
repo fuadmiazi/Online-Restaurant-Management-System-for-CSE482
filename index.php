@@ -1,15 +1,15 @@
-<?php 
-  session_start(); 
+<?php
+//   session_start(); 
 
-  if (!isset($_SESSION['name'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
-  }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['name']);
-  	header("location: login.php");
-  }
+//   if (!isset($_SESSION['name'])) {
+//   	$_SESSION['msg'] = "You must log in first";
+//   	header('location: login.php');
+//   }
+//   if (isset($_GET['logout'])) {
+//   	session_destroy();
+//   	unset($_SESSION['name']);
+//   	header("location: login.php");
+//   }
 ?>
 
 <!DOCTYPE html>
@@ -104,25 +104,27 @@
 
 <body class="bg-[#E8C07D] overflow-x-hidden">
 
-<div>
-  	<!-- notification message -->
-  	<?php if (isset($_SESSION['success'])) : ?>
-      <div class="error success" >
-      	<h3>
-          <?php 
-          	echo $_SESSION['success']; 
-          	unset($_SESSION['success']);
-          ?>
-      	</h3>
-      </div>
-  	<?php endif ?>
+    <div>
+        <!-- notification message -->
+        <?php if (isset($_SESSION['success'])): ?>
+        <div class="error success">
+            <h3>
+                <?php
+            echo $_SESSION['success'];
+            unset($_SESSION['success']);
+                ?>
+            </h3>
+        </div>
+        <?php endif ?>
 
-    <!-- logged in user information -->
-    <?php  if (isset($_SESSION['name'])) : ?>
-    	<p>Welcome <strong><?php echo $_SESSION['name']; ?></strong></p>
-    	<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
-    <?php endif ?>
-</div>
+        <!-- logged in user information -->
+        <?php if (isset($_SESSION['name'])): ?>
+        <p>Welcome <strong>
+                <?php echo $_SESSION['name']; ?>
+            </strong></p>
+        <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
+        <?php endif ?>
+    </div>
 
 
     <div class="scroll-container h-screen w-screen flex flex-col">
@@ -168,16 +170,19 @@
                 </div>
                 <div class="btns flex gap-12 my-16">
                     <div class="btn">
-                        <button
-                            class="text-white border-2 w-[190px] py-2 uppercase transition-all duration-100 hover:bg-gray-200 hover:bg-opacity-70 hover:font-medium hover:text-neutral-900">
-                            Delivery
-                        </button>
+                        <a href="order-page.php"><button
+                                class="text-white border-2 w-[190px] py-2 uppercase transition-all duration-100 hover:bg-gray-200 hover:bg-opacity-70 hover:font-medium hover:text-neutral-900">
+                                Delivery
+                            </button></a>
+
                     </div>
                     <div class="btn">
-                        <button
-                            class="text-white border-2 w-[190px] py-2 uppercase transition-all duration-100 hover:bg-gray-200 hover:bg-opacity-70 hover:font-medium hover:text-neutral-900">
-                            Pre-order
-                        </button>
+                        <a href="order-page.php">
+                            <button
+                                class="text-white border-2 w-[190px] py-2 uppercase transition-all duration-100 hover:bg-gray-200 hover:bg-opacity-70 hover:font-medium hover:text-neutral-900">
+                                Pre-order
+                            </button>
+                        </a>
                     </div>
                 </div>
             </main>

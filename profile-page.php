@@ -131,98 +131,87 @@
                     <p class="text-2xl mb-12 text-center font-medium">Previous Delivery Orders</p>
                     <div class="order-cards grid grid-cols-4 gap-8">
                         <div
-                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            class="rounded overflow-hidden bg-[#322d29] w-[300px] h-[400px] hover:scale-[1.02] transition-all duration-200">
                             <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
                                     alt="" style="object-position: 20% 75%" />
                                 <div class="p-5">
-                                    <p class="font-medium">Chicken Cheese Burger</p>
-                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit.
-                                        Labore.</p>
+                                    <p class="font-medium text-center">Chicken Cheese Burger</p>
+                                    <hr class="mt-5" />
+                                    <div class="flex text-sm justify-between items-center mt-5 font-bold">
+                                        <p>Price: 5.00$</p>
+                                        <p>Ordered: 502</p>
+                                    </div>
+                                    <div class="flex justify-center items-center">
+                                        <button class="px-4 py-2 mt-7 bg-green-600 w-full rounded">Order Again</button>
+                                    </div>
                                 </div>
                             </a>
                         </div>
                         <div
-                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            class="rounded overflow-hidden bg-[#322d29] w-[300px] h-[400px] hover:scale-[1.02] transition-all duration-200">
                             <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
                                     alt="" style="object-position: 20% 75%" />
                                 <div class="p-5">
-                                    <p class="font-medium">Chicken Cheese Burger</p>
-                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit.
-                                        Labore.</p>
+                                    <p class="font-medium text-center">Chicken Cheese Burger</p>
+                                    <hr class="mt-5" />
+                                    <div class="flex text-sm justify-between items-center mt-5 font-bold">
+                                        <p>Price: 5.00$</p>
+                                        <p>Ordered: 502</p>
+                                    </div>
+                                    <div class="flex justify-center items-center">
+                                        <button class="px-4 py-2 mt-7 bg-green-600 w-full rounded">Order Again</button>
+                                    </div>
                                 </div>
                             </a>
                         </div>
                         <div
-                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            class="rounded overflow-hidden bg-[#322d29] w-[300px] h-[400px] hover:scale-[1.02] transition-all duration-200">
                             <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
                                     alt="" style="object-position: 20% 75%" />
                                 <div class="p-5">
-                                    <p class="font-medium">Chicken Cheese Burger</p>
-                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit.
-                                        Labore.</p>
+                                    <p class="font-medium text-center">Chicken Cheese Burger</p>
+                                    <hr class="mt-5" />
+                                    <div class="flex text-sm justify-between items-center mt-5 font-bold">
+                                        <p>Price: 5.00$</p>
+                                        <p>Ordered: 502</p>
+                                    </div>
+                                    <div class="flex justify-center items-center">
+                                        <button class="px-4 py-2 mt-7 bg-green-600 w-full rounded">Order Again</button>
+                                    </div>
                                 </div>
                             </a>
                         </div>
                         <div
-                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            class="rounded overflow-hidden bg-[#322d29] w-[300px] h-[400px] hover:scale-[1.02] transition-all duration-200">
                             <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
                                     alt="" style="object-position: 20% 75%" />
                                 <div class="p-5">
-                                    <p class="font-medium">Chicken Cheese Burger</p>
-                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit.
-                                        Labore.</p>
+                                    <p class="font-medium text-center">Chicken Cheese Burger</p>
+                                    <hr class="mt-5" />
+                                    <div class="flex text-sm justify-between items-center mt-5 font-bold">
+                                        <p>Price: 5.00$</p>
+                                        <p>Ordered: 502</p>
+                                    </div>
+                                    <div class="flex justify-center items-center">
+                                        <button class="px-4 py-2 mt-7 bg-green-600 w-full rounded">Order Again</button>
+                                    </div>
                                 </div>
                             </a>
                         </div>
                         <div
-                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            class="rounded overflow-hidden bg-[#322d29] w-[300px] h-[400px] hover:scale-[1.02] transition-all duration-200">
                             <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
                                     alt="" style="object-position: 20% 75%" />
                                 <div class="p-5">
-                                    <p class="font-medium">Chicken Cheese Burger</p>
-                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit.
-                                        Labore.</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div
-                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
-                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
-                                    alt="" style="object-position: 20% 75%" />
-                                <div class="p-5">
-                                    <p class="font-medium">Chicken Cheese Burger</p>
-                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit.
-                                        Labore.</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div
-                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
-                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
-                                    alt="" style="object-position: 20% 75%" />
-                                <div class="p-5">
-                                    <p class="font-medium">Chicken Cheese Burger</p>
-                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit.
-                                        Labore.</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div
-                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
-                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
-                                    alt="" style="object-position: 20% 75%" />
-                                <div class="p-5">
-                                    <p class="font-medium">Chicken Cheese Burger</p>
-                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit.
-                                        Labore.</p>
+                                    <p class="font-medium text-center">Chicken Cheese Burger</p>
+                                    <hr class="mt-5" />
+                                    <div class="flex text-sm justify-between items-center mt-5 font-bold">
+                                        <p>Price: 5.00$</p>
+                                        <p>Ordered: 502</p>
+                                    </div>
+                                    <div class="flex justify-center items-center">
+                                        <button class="px-4 py-2 mt-7 bg-green-600 w-full rounded">Order Again</button>
+                                    </div>
                                 </div>
                             </a>
                         </div>
@@ -232,104 +221,116 @@
                     <p class="text-2xl mb-12 text-center font-medium">Previous Pre-Orders</p>
                     <div class="order-cards grid grid-cols-4 gap-8">
                         <div
-                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            class="rounded overflow-hidden bg-[#322d29] w-[300px] h-[400px] hover:scale-[1.02] transition-all duration-200">
                             <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
                                     alt="" style="object-position: 20% 75%" />
                                 <div class="p-5">
-                                    <p class="font-medium">Chicken Cheese Burger</p>
-                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit.
-                                        Labore.</p>
+                                    <p class="font-medium text-center">Chicken Cheese Burger</p>
+                                    <hr class="mt-5" />
+                                    <div class="flex text-sm justify-between items-center mt-5 font-bold">
+                                        <p>Price: 5.00$</p>
+                                        <p>Ordered: 502</p>
+                                    </div>
+                                    <div class="flex justify-center items-center">
+                                        <button class="px-4 py-2 mt-7 bg-green-600 w-full rounded">Pre-Order
+                                            Again</button>
+                                    </div>
                                 </div>
                             </a>
                         </div>
                         <div
-                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            class="rounded overflow-hidden bg-[#322d29] w-[300px] h-[400px] hover:scale-[1.02] transition-all duration-200">
                             <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
                                     alt="" style="object-position: 20% 75%" />
                                 <div class="p-5">
-                                    <p class="font-medium">Chicken Cheese Burger</p>
-                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit.
-                                        Labore.</p>
+                                    <p class="font-medium text-center">Chicken Cheese Burger</p>
+                                    <hr class="mt-5" />
+                                    <div class="flex text-sm justify-between items-center mt-5 font-bold">
+                                        <p>Price: 5.00$</p>
+                                        <p>Ordered: 502</p>
+                                    </div>
+                                    <div class="flex justify-center items-center">
+                                        <button class="px-4 py-2 mt-7 bg-green-600 w-full rounded">Pre-Order
+                                            Again</button>
+                                    </div>
                                 </div>
                             </a>
                         </div>
                         <div
-                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            class="rounded overflow-hidden bg-[#322d29] w-[300px] h-[400px] hover:scale-[1.02] transition-all duration-200">
                             <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
                                     alt="" style="object-position: 20% 75%" />
                                 <div class="p-5">
-                                    <p class="font-medium">Chicken Cheese Burger</p>
-                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit.
-                                        Labore.</p>
+                                    <p class="font-medium text-center">Chicken Cheese Burger</p>
+                                    <hr class="mt-5" />
+                                    <div class="flex text-sm justify-between items-center mt-5 font-bold">
+                                        <p>Price: 5.00$</p>
+                                        <p>Ordered: 502</p>
+                                    </div>
+                                    <div class="flex justify-center items-center">
+                                        <button class="px-4 py-2 mt-7 bg-green-600 w-full rounded">Pre-Order
+                                            Again</button>
+                                    </div>
                                 </div>
                             </a>
                         </div>
                         <div
-                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            class="rounded overflow-hidden bg-[#322d29] w-[300px] h-[400px] hover:scale-[1.02] transition-all duration-200">
                             <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
                                     alt="" style="object-position: 20% 75%" />
                                 <div class="p-5">
-                                    <p class="font-medium">Chicken Cheese Burger</p>
-                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit.
-                                        Labore.</p>
+                                    <p class="font-medium text-center">Chicken Cheese Burger</p>
+                                    <hr class="mt-5" />
+                                    <div class="flex text-sm justify-between items-center mt-5 font-bold">
+                                        <p>Price: 5.00$</p>
+                                        <p>Ordered: 502</p>
+                                    </div>
+                                    <div class="flex justify-center items-center">
+                                        <button class="px-4 py-2 mt-7 bg-green-600 w-full rounded">Pre-Order
+                                            Again</button>
+                                    </div>
                                 </div>
                             </a>
                         </div>
                         <div
-                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            class="rounded overflow-hidden bg-[#322d29] w-[300px] h-[400px] hover:scale-[1.02] transition-all duration-200">
                             <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
                                     alt="" style="object-position: 20% 75%" />
                                 <div class="p-5">
-                                    <p class="font-medium">Chicken Cheese Burger</p>
-                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit.
-                                        Labore.</p>
+                                    <p class="font-medium text-center">Chicken Cheese Burger</p>
+                                    <hr class="mt-5" />
+                                    <div class="flex text-sm justify-between items-center mt-5 font-bold">
+                                        <p>Price: 5.00$</p>
+                                        <p>Ordered: 502</p>
+                                    </div>
+                                    <div class="flex justify-center items-center">
+                                        <button class="px-4 py-2 mt-7 bg-green-600 w-full rounded">Pre-Order
+                                            Again</button>
+                                    </div>
                                 </div>
                             </a>
                         </div>
                         <div
-                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
+                            class="rounded overflow-hidden bg-[#322d29] w-[300px] h-[400px] hover:scale-[1.02] transition-all duration-200">
                             <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
                                     alt="" style="object-position: 20% 75%" />
                                 <div class="p-5">
-                                    <p class="font-medium">Chicken Cheese Burger</p>
-                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit.
-                                        Labore.</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div
-                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
-                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
-                                    alt="" style="object-position: 20% 75%" />
-                                <div class="p-5">
-                                    <p class="font-medium">Chicken Cheese Burger</p>
-                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit.
-                                        Labore.</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div
-                            class="order-card rounded overflow-hidden bg-[#322d29] w-[300px] h-[305px] hover:scale-[1.02] transition-all duration-200">
-                            <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg"
-                                    alt="" style="object-position: 20% 75%" />
-                                <div class="p-5">
-                                    <p class="font-medium">Chicken Cheese Burger</p>
-                                    <p class="text-sm text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit.
-                                        Labore.</p>
+                                    <p class="font-medium text-center">Chicken Cheese Burger</p>
+                                    <hr class="mt-5" />
+                                    <div class="flex text-sm justify-between items-center mt-5 font-bold">
+                                        <p>Price: 5.00$</p>
+                                        <p>Ordered: 502</p>
+                                    </div>
+                                    <div class="flex justify-center items-center">
+                                        <button class="px-4 py-2 mt-7 bg-green-600 w-full rounded">Pre-Order
+                                            Again</button>
+                                    </div>
                                 </div>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="prev-card text-white scroll-child  pt-10">
+                <!-- <div class="prev-card text-white scroll-child  pt-10">
                     <p class="text-2xl mb-12 text-center font-medium">Previous Reservations</p>
                     <div class="order-cards grid grid-cols-4 gap-8">
                         <div
@@ -429,7 +430,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
 
