@@ -18,6 +18,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
     <script>
     tailwind.config = {
         theme: {
@@ -99,6 +102,8 @@
             <div class="search">
                 <input class="text-black w-[500px] rounded-full h-[50px] px-10 py-2" type="search" name="search"
                     id="search" autocomplete="off" />
+                <div class="absolute w-[500px] flex flex-col justify-center items-center text-center" id="searchresult">
+                </div>
             </div>
             <button class="cart p-3 rounded-full bg-white relative">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
@@ -223,26 +228,70 @@
         </div>
 
         <div class="foodItems grid grid-cols-4 gap-8 px-64 pb-44">
-            <div
-                class="rounded overflow-hidden bg-[#322d29] w-[300px] h-[400px] hover:scale-[1.02] transition-all duration-200">
-                <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg" alt=""
-                        style="object-position: 20% 75%" />
-                    <div class="p-5">
-                        <p class="font-medium text-center">Chicken Cheese Burger</p>
-                        <hr class="mt-5" />
-                        <div class="flex text-sm justify-between items-center mt-5 font-bold">
-                            <p>Price: 5.00$</p>
-                            <p>Ordered: 502</p>
+
+            <?php
+
+            include("config.php");
+
+            $sql = "SELECT * FROM `food_items`";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while ($row = $result->fetch_assoc()) {
+
+                    echo '<div
+                    class="rounded overflow-hidden bg-[#322d29] w-[300px] h-[400px] hover:scale-[1.02] transition-all duration-200">
+                    <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg" alt=""
+                            style="object-position: 20% 75%" />
+                        <div class="p-5">
+                            <p class="font-medium text-center">' . $row["name"] . '</p>
+                            <hr class="mt-5" />
+                            <div class="flex text-sm justify-between items-center mt-5 font-bold">
+                                <p>Price: ' . $row["price"] . '</p>
+                                <p>Ordered: ' . $row["ordered"] . '</p>
+                            </div>
+                            <div class="flex justify-center items-center">
+                                <button class="px-4 py-2 mt-7 bg-green-600 w-full rounded">Add To Cart</button>
+                            </div>
                         </div>
-                        <div class="flex justify-center items-center">
-                            <button class="px-4 py-2 mt-7 bg-green-600 w-full rounded">Add To Cart</button>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>';
+                }
+
+            } else {
+                echo "0 results";
+            }
+
+            $conn->close();
+            ?>
+
+
         </div>
         <?php require "footer.php" ?>
     </div>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#search").keyup(function() {
+            var input = $(this).val();
+            if (input != "") {
+                $.ajax({
+
+                    url: "livesearch.php",
+                    method: "POST",
+                    data: {
+                        input: input
+                    },
+                    success: function(data) {
+                        $("#searchresult").html(data);
+                    }
+                })
+            } else {
+                $("searchresult").css("display", "none");
+            }
+        })
+    })
+    </script>
 </body>
 
 </html>

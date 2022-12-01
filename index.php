@@ -139,7 +139,8 @@
                             </li>
                             <li class="hover:text-yellow-500 transition-all duration-75"><a href="#contact">CONTACT</a>
                             </li>
-                            <li class="hover:text-yellow-500 transition-all duration-75"><a href="">ORDER</a></li>
+                            <li class="hover:text-yellow-500 transition-all duration-75"><a
+                                    href="order-page.php">ORDER</a></li>
                         </ul>
                     </div>
 
