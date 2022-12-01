@@ -219,12 +219,6 @@
         </div>
     </div>
     <script>
-    document.getElementsByClassName("nav-icon")[0].addEventListener("click", () => {
-        document.getElementsByClassName("nav-side")[0].classList.add("translate-x-0");
-    });
-    document.getElementsByClassName("close-btn")[0].addEventListener("click", () => {
-        document.getElementsByClassName("nav-side")[0].classList.remove("translate-x-0");
-    });
     document.getElementsByClassName("mirpur")[0].addEventListener("click", () => {
         document.getElementsByClassName(
                 "map"

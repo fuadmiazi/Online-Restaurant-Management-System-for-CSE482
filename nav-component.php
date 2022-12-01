@@ -48,6 +48,14 @@
             <li class=""><a class="hover:text-yellow-500 transition-all duration-75" href="">RESERVATION</a></li>
         </ul>
     </div>
+    <script>
+    document.getElementsByClassName("nav-icon")[0].addEventListener("click", () => {
+        document.getElementsByClassName("nav-side")[0].classList.add("translate-x-0");
+    });
+    document.getElementsByClassName("close-btn")[0].addEventListener("click", () => {
+        document.getElementsByClassName("nav-side")[0].classList.remove("translate-x-0");
+    });
+    </script>
 </body>
 
 </html>
