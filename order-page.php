@@ -22,15 +22,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
     <script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    clifford: "#da373d",
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: "#da373d",
+                    },
                 },
             },
-        },
-    };
+        };
     </script>
     <style type="text/tailwindcss">
         @layer utilities {
@@ -41,53 +41,73 @@
       </style>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <style>
-    html {
-        scroll-behavior: smooth;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body {
-        font-family: "Montserrat";
-    }
+        body {
+            font-family: "Montserrat";
+        }
 
-    .bg-main {
-        background-image: url(images/bg-img.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-    }
+        .bg-main {
+            background-image: url(images/bg-img.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
 
-    .title {
-        font-family: "Sofia", cursive;
-    }
+        .title {
+            font-family: "Sofia", cursive;
+        }
 
-    .scroll-container {
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        scroll-behavior: smooth;
-    }
+        .scroll-container {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-    .scroll-child {
-        scroll-snap-align: start;
-        flex: none;
-    }
+        .scroll-child {
+            scroll-snap-align: start;
+            flex: none;
+        }
 
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
 
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
 
-    ::-webkit-scrollbar-thumb {
-        background: #888;
-    }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
 
-    ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        @keyframes slide-in {
+            0% {
+                height: 0%;
+            }
+
+            100% {
+                height: 100%;
+            }
+        }
+
+        @keyframes slide-out {
+            0% {
+                height: 100%;
+            }
+
+            100% {
+                height: 0%;
+            }
+        }
     </style>
 </head>
 
@@ -101,9 +121,8 @@
             </div>
             <div class="search">
                 <input class="text-black w-[500px] rounded-full h-[50px] px-10 py-2" type="search" name="search"
-                    id="search" autocomplete="off" />
-                <div class="absolute w-[500px] flex flex-col justify-center items-center text-center" id="searchresult">
-                </div>
+                    id="search" autocomplete="off" placeholder="Search" />
+
             </div>
             <button class="cart p-3 rounded-full bg-white relative">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
@@ -187,38 +206,38 @@
             </div>
         </div>
 
-        <div class="itemList px-64 mb-20">
-            <ul class="flex items-center gap-16 transition-all">
+        <div class="itemList px-64 mb-44">
+            <ul class="flex items-center gap-16 transition-all absolute h-[108px]">
                 <li>
-                    <button
+                    <button id="EveryButton"
                         class="flex justify-center items-center flex-col focus:px-2 focus:py-3 focus:pb-5 focus:bg-zinc-700 focus:rounded-full focus:-translate-x-2 focus:-translate-y-3 transition-all">
                         <img class="mb-4 p-1 rounded-full bg-white" src="images/meal.png" alt="" />
                         <p class="font-medium">Every</p>
                     </button>
                 </li>
                 <li>
-                    <button
+                    <button id="PizzaButton"
                         class="flex justify-center items-center flex-col focus:px-2 focus:py-3 focus:pb-5 focus:bg-zinc-700 focus:rounded-full focus:-translate-x-2 focus:-translate-y-3 transition-all">
                         <img class="mb-4 p-1 rounded-full bg-white" src="images/pizza.png" alt="" />
                         <p class="font-medium">Pizza</p>
                     </button>
                 </li>
                 <li>
-                    <button
+                    <button id="WrapsButton"
                         class="flex justify-center items-center flex-col focus:px-2 focus:py-3 focus:pb-5 focus:bg-zinc-700 focus:rounded-full focus:-translate-x-2 focus:-translate-y-3 transition-all">
                         <img class="mb-4 p-1 rounded-full bg-white" src="images/wrap.png" alt="" />
                         <p class="font-medium">Wraps</p>
                     </button>
                 </li>
                 <li>
-                    <button
+                    <button id="BurgerButton"
                         class="flex justify-center items-center flex-col focus:px-2 focus:py-3 focus:pb-5 focus:bg-zinc-700 focus:rounded-full focus:-translate-x-2 focus:-translate-y-3 transition-all">
                         <img class="mb-4 p-1 rounded-full bg-white" src="images/burger.png" alt="" />
                         <p class="font-medium">Burger</p>
                     </button>
                 </li>
                 <li>
-                    <button
+                    <button id="DrinksButton"
                         class="flex justify-center items-center flex-col focus:px-2 focus:py-3 focus:pb-5 focus:bg-zinc-700 focus:rounded-full focus:-translate-x-2 focus:-translate-y-3 transition-all">
                         <img class="mb-4 p-1 rounded-full bg-white" src="images/coffee.png" alt="" />
                         <p class="font-medium">Drinks</p>
@@ -227,70 +246,151 @@
             </ul>
         </div>
 
-        <div class="foodItems grid grid-cols-4 gap-8 px-64 pb-44">
+        <div id="search-result-div" style="display: none">
+            <p class="text-xl mb-14 font-medium px-64">
+                Search Result</p>
+            <div class="px-64 mb-12">
+                <div class=" foodItems grid grid-cols-4 gap-8 transition-all" id="searchresult">
+                </div>
+            </div>
+        </div>
 
-            <?php
 
-            include("config.php");
 
-            $sql = "SELECT * FROM `food_items`";
-            $result = $conn->query($sql);
+        <div class="bg-[#282421] pt-12 z-50 relative">
+            <p class="foodItems-title px-64 text-xl font-medium mb-14">Food Item List</p>
 
-            if ($result->num_rows > 0) {
-                // output data of each row
-                while ($row = $result->fetch_assoc()) {
+            <div class="foodItems grid grid-cols-4 whitespace-nowrap px-64 pb-44 w-full gap-8" id="everyFoodItems">
 
-                    echo '<div
-                    class="rounded overflow-hidden bg-[#322d29] w-[300px] h-[400px] hover:scale-[1.02] transition-all duration-200">
-                    <a class="" href=""><img class="w-[300px] h-[200px] object-cover" src="images/food1.jpg" alt=""
-                            style="object-position: 20% 75%" />
-                        <div class="p-5">
-                            <p class="font-medium text-center">' . $row["name"] . '</p>
-                            <hr class="mt-5" />
-                            <div class="flex text-sm justify-between items-center mt-5 font-bold">
-                                <p>Price: ' . $row["price"] . '$</p>
-                                <p>Ordered: ' . $row["ordered"] . '</p>
-                            </div>
-                            <div class="flex justify-center items-center">
-                                <button class="px-4 py-2 mt-7 bg-green-600 w-full rounded">Add To Cart</button>
-                            </div>
-                        </div>
-                    </a>
-                </div>';
+                <?php
+
+                include("config.php");
+
+                $sql = "SELECT * FROM `food_items`";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+
+                        echo '<div
+            class="' . $row["type"] . ' rounded overflow-hidden bg-[#322d29] h-[400px] hover:scale-[1.02] transition-all duration-200">
+            <a class="" href=""><img class="w-full h-[200px] object-cover" src="images/food1.jpg" alt=""
+                    style="object-position: 20% 75%" />
+                <div class="p-5">
+                    <p class="font-medium text-center truncate">' . $row["name"] . '</p>
+                    <hr class="mt-5" />
+                    <div class="flex text-sm justify-between items-center mt-5 font-bold">
+                        <p>Price: ' . $row["price"] . '$</p>
+                        <p>Ordered: ' . $row["ordered"] . '</p>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <button class="px-4 py-2 mt-7 bg-green-500 hover:bg-green-600 w-full rounded">Add To Cart</button>
+                    </div>
+                </div>
+            </a>
+        </div>';
+
+                    }
+
+                } else {
+                    echo "0 results";
                 }
 
-            } else {
-                echo "0 results";
-            }
+                $conn->close();
 
-            $conn->close();
-            ?>
+                ?>
 
 
+            </div>
         </div>
+
         <?php require "footer.php" ?>
     </div>
     <script type="text/javascript">
-    $(document).ready(function() {
-        $("#search").keyup(function() {
-            var input = $(this).val();
-            if (input != "") {
-                $.ajax({
 
-                    url: "livesearch.php",
-                    method: "POST",
-                    data: {
-                        input: input
-                    },
-                    success: function(data) {
-                        $("#searchresult").html(data);
+        (() => {
+            let data = $("#everyFoodItems").children();
+
+
+            $("#EveryButton").click(() => {
+                $.each(data, (index, value) => {
+
+                    $("#everyFoodItems").append(value);
+
+                })
+            })
+
+            $("#PizzaButton").click(() => {
+                $("#everyFoodItems").html("");
+                $.each(data, (index, value) => {
+                    if ($(value).hasClass("Pizza")) {
+                        $("#everyFoodItems").append(value);
                     }
                 })
-            } else {
-                $("searchresult").css("display", "none");
-            }
+            })
+
+            $("#WrapsButton").click(() => {
+                $("#everyFoodItems").html("");
+                $.each(data, (index, value) => {
+                    if ($(value).hasClass("Wraps")) {
+                        $("#everyFoodItems").append(value);
+                    }
+                })
+            })
+
+            $("#BurgerButton").click(() => {
+                $("#everyFoodItems").html("");
+                $.each(data, (index, value) => {
+                    if ($(value).hasClass("Burger")) {
+                        $("#everyFoodItems").append(value);
+                    }
+                })
+            });
+
+            $("#DrinksButton").click(() => {
+                $("#everyFoodItems").html("");
+                $.each(data, (index, value) => {
+                    if ($(value).hasClass("Drinks")) {
+                        $("#everyFoodItems").append(value);
+                    }
+                });
+            })
+
+        })();
+
+        $(document).ready(function () {
+            $("#search").on('input', function () {
+                var input = $(this).val();
+                input = input.trim();
+                if (input != "") {
+                    $.ajax({
+                        url: "live-search.php",
+                        method: "POST",
+                        data: {
+                            input: input
+                        },
+                        success: function (data) {
+                            $("#searchresult").html(data);
+                            $("#search-result-div").css("display", "block").css("animation",
+                                "slide-in 1s ease-in-out");
+                        }
+                    })
+                } else {
+                    let search_div = $("#search-result-div");
+                    search_div.css("animation",
+                        "slide-out 1s ease-in-out");
+
+                    search_div.one('animationend', () => {
+                        search_div.css("display", "none");
+                        console.log("done")
+                    })
+
+                }
+            })
         })
-    })
+
+
     </script>
 </body>
 
