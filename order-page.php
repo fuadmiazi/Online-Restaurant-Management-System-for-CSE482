@@ -257,16 +257,16 @@
 
 
 
-        <div class="bg-[#282421] pt-12 z-50 relative">
-            <p class="foodItems-title px-64 text-xl font-medium mb-14">Food Item List</p>
+        <div class="bg-[#282421] pt-12 z-50 relativ  mx-64">
+            <p class="foodItems-title text-xl font-medium mb-14">Food Item List</p>
 
-            <div class="foodItems grid grid-cols-4 whitespace-nowrap px-64 pb-44 w-full gap-8" id="everyFoodItems">
+            <div class="foodItems grid grid-cols-4 whitespace-nowrap pb-44 w-full gap-8" id="everyFoodItems">
 
                 <?php
 
                 include("config.php");
 
-                $sql = "SELECT * FROM `food_items`";
+                $sql = "SELECT * FROM `food_items` ORDER BY `added_time` DESC";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -275,7 +275,7 @@
 
                         echo '<div
             class="' . $row["type"] . ' rounded overflow-hidden bg-[#322d29] h-[400px] hover:scale-[1.02] transition-all duration-200">
-            <a class="" href=""><img class="w-full h-[200px] object-cover" src="images/food1.jpg" alt=""
+            <a class="" href=""><img class="w-full h-[200px] object-cover" src="images/' . $row["image_name"] . '" alt=""
                     style="object-position: 20% 75%" />
                 <div class="p-5">
                     <p class="font-medium text-center truncate">' . $row["name"] . '</p>
@@ -315,9 +315,7 @@
 
             $("#EveryButton").click(() => {
                 $.each(data, (index, value) => {
-
                     $("#everyFoodItems").append(value);
-
                 })
             })
 
@@ -383,12 +381,44 @@
 
                     search_div.one('animationend', () => {
                         search_div.css("display", "none");
-                        console.log("done")
                     })
 
                 }
             })
         })
+
+
+        let SortData;
+
+        $(window).on("load", () => {
+            $.ajax({
+                url: "sort-by.php",
+                method: "POST",
+                dataType: "json",
+                success: function (data) {
+                    SortData = data;
+
+                }
+            })
+        })
+
+        $('#sortby').on('change', function () {
+            if (this.value == 'recently') {
+                $("#everyFoodItems").html(SortData[0]);
+            }
+            else if (this.value == 'h2l') {
+                $("#everyFoodItems").html(SortData[1]);
+            }
+            else if (this.value == 'l2h') {
+                $("#everyFoodItems").html(SortData[2]);
+            }
+            else if (this.value == 'asc') {
+                $("#everyFoodItems").html(SortData[3]);
+            }
+            else if (this.value == 'desc') {
+                $("#everyFoodItems").html(SortData[4]);
+            }
+        });
 
 
     </script>
