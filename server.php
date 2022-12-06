@@ -53,9 +53,14 @@ if (isset($_POST['login_user'])) {
         $password = md5($password);
         $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
         $results = mysqli_query($db, $query);
-        $name = mysqli_fetch_assoc($results);
+        $fetched = mysqli_fetch_assoc($results);
+        $name = $fetched["name"];
+        $phone = $fetched["phone"];
+        $email = $fetched["email"];
         if (mysqli_num_rows($results) == 1) {
           $_SESSION['name'] = $name;
+          $_SESSION['phone'] = $phone;
+          $_SESSION['email'] = $email;
           $_SESSION['success'] = "You are now logged in";
           header('location: index.php');
         }else {
