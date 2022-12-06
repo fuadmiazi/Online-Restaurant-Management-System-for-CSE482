@@ -121,7 +121,6 @@
         <?php if (isset($_SESSION['name'])): ?>
         <p>Welcome <strong>
                 <?php echo $_SESSION['name']; ?>
-                <?php echo $results.[0] ?>
             </strong></p>
         <p> <a href="index.php?logout='1'" style="color: red;">Logout</a> </p>
         <?php endif ?>
@@ -157,6 +156,19 @@
                             </li>
                             <?php endif ?>
                             <li class="hover:text-yellow-500 transition-all duration-75"><a href="">FEEDBACK</a></li>
+
+                            <?php if (isset($_SESSION['name'])): ?>
+                            <li class="hover:text-yellow-500 transition-all duration-75"><a
+                                    href="index.php?logout='1'">LOGOUT</a>
+                            </li>
+                            <?php endif ?>
+
+                            <?php if (!isset($_SESSION['name'])): ?>
+                            <li class="hover:text-yellow-500 transition-all duration-75"><a
+                                    href="register.php">REGISTRATION</a>
+                            </li>
+                            <?php endif ?>
+
                         </ul>
                     </div>
                 </div>
