@@ -15,10 +15,11 @@ body {
     float: left;
     text-align: center;
 }
-/* 
+
 .left h1 {
-    margin-top: 20%;
-} */
+    font-size: 30px;
+}
+
 
 .left img {
     width: 75%;
@@ -40,6 +41,10 @@ body {
 
 h1{
     color: rgb(159, 192, 136);
+}
+
+.welcome-text {
+    font-size: large;
 }
 
 #khanas-logo{
