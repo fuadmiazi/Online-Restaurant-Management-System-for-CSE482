@@ -1,3 +1,17 @@
+<?php
+  session_start(); 
+
+//   if (!isset($_SESSION['name'])) {
+//   	$_SESSION['msg'] = "You must log in first";
+//   	header('location: login.php');
+//   }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['name']);
+  	header("location: index.php");
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -101,7 +115,10 @@
                     </div>
                     <div class="profile-name text-white">
                         <div class="mb-4 flex items-center gap-6">
-                            <p class="title text-4xl border-white border-2 w-fit">Rafid Ahmmad</p>
+                            <p class="title text-4xl border-white border-2 w-fit">
+                                <?php if (isset($_SESSION['name'])): ?>
+                                    <?php echo $_SESSION['name']; ?>
+                                <?php endif ?></p>
                             <div class="btn">
                                 <a href="edit-profile.php"><button
                                         class="text-white border-2 w-[190px] py-2 uppercase transition-all duration-100 hover:bg-gray-200 hover:bg-opacity-70 hover:font-medium hover:text-neutral-900">
@@ -113,7 +130,14 @@
                         </div>
 
                         <p class="mb-4">
-                            +8801551243895 / <span class="text-blue-500"><a href="">rafid.ahmmad.3@gmail.com</a></span>
+                        
+                                <?php if (isset($_SESSION['name'])): ?>
+                                    <?php echo $_SESSION['phone']; ?>
+                                <?php endif ?> / <span class="text-blue-500"><a href="">
+                                    
+                                <?php if (isset($_SESSION['name'])): ?>
+                                    <?php echo $_SESSION['email']; ?>
+                                <?php endif ?></a></span>
                         </p>
                         <p class="text-blue-500"></p>
                         <div class="profile-bio text-white">

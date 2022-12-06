@@ -152,7 +152,7 @@
                             </li>
                             <?php if (isset($_SESSION['name'])): ?>
                             <li class="hover:text-yellow-500 transition-all duration-75"><a
-                                    href="profile-page.php">PROFILE</a>
+                                    href="profile-page.php"><?php echo $_SESSION['name']; ?></a>
                             </li>
                             <?php endif ?>
                             <li class="hover:text-yellow-500 transition-all duration-75"><a href="">FEEDBACK</a></li>
