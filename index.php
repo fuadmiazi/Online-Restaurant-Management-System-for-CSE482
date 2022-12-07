@@ -130,7 +130,7 @@
                             <?php endif ?>
                             </li>
                             <?php if (isset($_SESSION['name'])): ?>
-                            <li class="hover:text-yellow-500 transition-all duration-75"><a
+                            <li class="hover:text-yellow-500 transition-all duration-75 uppercase"><a
                                     href="profile-page.php"><?php echo $_SESSION['name']; ?></a>
                             </li>
                             <?php endif ?>
@@ -144,7 +144,7 @@
 
                             <?php if (!isset($_SESSION['name'])): ?>
                             <li class="hover:text-yellow-500 transition-all duration-75"><a
-                                    href="register.php">REGISTRATION</a>
+                                    href="register.php">JOIN US</a>
                             </li>
                             <?php endif ?>
 
