@@ -1,3 +1,17 @@
+<?php
+  session_start(); 
+
+//   if (!isset($_SESSION['name'])) {
+//   	$_SESSION['msg'] = "You must log in first";
+//   	header('location: login.php');
+//   }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['name']);
+  	header("location: index.php");
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,15 +120,17 @@
                         </div>
                         <div class="image-pro">
                             <img class="rounded-full w-[250px] h-[250px] object-cover object-top"
-                                src="images/propic.jpg" alt="" />
+                                src="" alt="" />
                         </div>
                     </div>
                     <div class="profile-name text-white">
                         <div class="mb-4 flex items-center gap-6">
-                            <input class="text-black" type="text" placeholder="Full-Name" value="Rafid Ahmmad" />
+                            <?php if(isset($_SESSION['name'])): ?>
+                            <input class="text-black" type="text" placeholder="Full-Name" value="
+                            <?php echo $_SESSION['name'] ?>" />
                             <div class="btn">
                                 <a href="profile-page.php"><button
-                                        class="text-white border-2 w-[224px] py-2 uppercase transition-all duration-100 hover:bg-gray-200 hover:bg-opacity-70 hover:font-medium hover:text-neutral-900">
+                                        class="text-white border-2 w-[224px] py-2 uppercase transition-all duration-100 hover:bg-gray-200 hover:bg-opacity-70 hover:font-medium hover:text-neutral-900" name="edit-profile">
                                         Save Profile
                                     </button></a>
 
@@ -122,9 +138,9 @@
                         </div>
 
                         <p class="mb-4 text-black">
-                            <input class="mr-5" value="+8801551243895" type="text" placeholder="Phone No." />
+                            <input class="mr-5" value="<?php echo $_SESSION['phone'] ?>" type="text" placeholder="Phone No." />
 
-                            <input value="rafid.ahmmad.3@gmail.com" type="text" placeholder="Email" />
+                            <input value="<?php echo $_SESSION['email'] ?>" type="text" placeholder="Email" />
                         </p>
                         <p class="text-blue-500"></p>
                         <div class="profile-bio text-white">
@@ -132,6 +148,7 @@
                             <textarea placeholder="Biography" class="w-[470px] text-black" cols="40" rows="3">
 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nam non quia nihil explicabo numquam.</textarea>
                         </div>
+                        <?php endif ?>
                     </div>
                 </div>
             </div>

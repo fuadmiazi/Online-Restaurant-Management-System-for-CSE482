@@ -68,5 +68,12 @@ if (isset($_POST['login_user'])) {
         }
     }
   }
+
+  // Edit Profile Form
+  if (isset($_POST['edit_profile'])) {
+    $name = mysqli_real_escape_string($db, $_POST['name']);
+    $email = mysqli_real_escape_string($db, $_POST['email']);
+    $phone = mysqli_real_escape_string($db, $_POST['phone']);
+  }
   
 ?>
