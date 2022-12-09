@@ -358,7 +358,7 @@
         })();
 
         $(document).ready(function () {
-            $("#search").on('input', function () {
+            $("#search").keyup(function () {
                 var input = $(this).val();
                 input = input.trim();
                 if (input != "") {
@@ -377,12 +377,9 @@
                 } else {
                     let search_div = $("#search-result-div");
                     search_div.css("animation",
-                        "slide-out 1s ease-in-out");
-
-                    search_div.one('animationend', () => {
+                        "slide-out 1s ease-in-out").one('animationend', () => {
                         search_div.css("display", "none");
-                    })
-
+                    });
                 }
             })
         })
