@@ -10,6 +10,12 @@
   	unset($_SESSION['name']);
   	header("location: index.php");
   }
+
+  if(isset($_SESSION['name'])) {
+
+  }
+
+  include('server.php')
 ?>
 
 <!DOCTYPE html>
@@ -126,7 +132,7 @@
                     <div class="profile-name text-white">
                         <div class="mb-4 flex items-center gap-6">
                             <?php if(isset($_SESSION['name'])): ?>
-                            <input class="text-black" type="text" placeholder="Full-Name" value="
+                            <input class="text-black" type="text" name="name" value="
                             <?php echo $_SESSION['name'] ?>" />
                             <div class="btn">
                                 <a href="profile-page.php"><button
@@ -138,9 +144,9 @@
                         </div>
 
                         <p class="mb-4 text-black">
-                            <input class="mr-5" value="<?php echo $_SESSION['phone'] ?>" type="text" placeholder="Phone No." />
+                            <input class="mr-5" value="<?php echo $_SESSION['phone'] ?>" name="phone" type="text" />
 
-                            <input value="<?php echo $_SESSION['email'] ?>" type="text" placeholder="Email" />
+                            <input value="<?php echo $_SESSION['email'] ?>" name="email" type="text" />
                         </p>
                         <p class="text-blue-500"></p>
                         <div class="profile-bio text-white">
