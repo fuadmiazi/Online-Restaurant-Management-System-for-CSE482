@@ -1,0 +1,10 @@
+contact us -> email a message function
+profile -> upload a profile picture
+profile -> previous transactions
+order -> recently viewed
+order -> search engine animation bug
+cart -> add to cart
+login -> login API
+checkout -> payment API
+cart -> delivery form map
+feedback -> feedback page

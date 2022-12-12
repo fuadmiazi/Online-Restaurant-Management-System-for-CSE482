@@ -32,20 +32,21 @@
             <li>
                 <div class="h-[1px] w-[280px] bg-white rounded"></div>
             </li>
-            <li class=""><a class="hover:text-yellow-500 transition-all duration-75" href="profile-page.php">PROFILE</a>
+            <li class=""><a class="hover:text-yellow-500 transition-all duration-75" href="shopping-cart.php">CART</a></li>
+
             </li>
             <li>
                 <div class="h-[1px] w-[280px] bg-white rounded"></div>
             </li>
-            <li class=""><a class="hover:text-yellow-500 transition-all duration-75" href="">ORDER</a></li>
+            <li class=""><a class="hover:text-yellow-500 transition-all duration-75" href="order-page.php">ORDER</a></li>
+            <li>
+                <div class="h-[1px] w-[280px] bg-white rounded"></div>
+            </li>
+            <li class=""><a class="hover:text-yellow-500 transition-all duration-75" href="profile-page.php">PROFILE</a>
             <li>
                 <div class="h-[1px] w-[280px] bg-white rounded"></div>
             </li>
             <li class=""><a class="hover:text-yellow-500 transition-all duration-75" href="">FEEDBACK</a></li>
-            <li>
-                <div class="h-[1px] w-[280px] bg-white rounded"></div>
-            </li>
-            <li class=""><a class="hover:text-yellow-500 transition-all duration-75" href="">RESERVATION</a></li>
         </ul>
     </div>
     <script>

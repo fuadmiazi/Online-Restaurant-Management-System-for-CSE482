@@ -257,7 +257,7 @@
 
 
 
-        <div class="bg-[#282421] pt-12 z-50 relativ  mx-64">
+        <div class="bg-[#282421] pt-12 z-50 relative  mx-64">
             <p class="foodItems-title text-xl font-medium mb-14">Food Item List</p>
 
             <div class="foodItems grid grid-cols-4 whitespace-nowrap pb-44 w-full gap-8" id="everyFoodItems">
