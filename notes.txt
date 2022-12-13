@@ -8,3 +8,11 @@ login -> login API
 checkout -> payment API
 cart -> delivery form map
 feedback -> feedback page
+
+
+DONE
+Shopping cart database model
+    name foreign key from food items
+    quantity
+    total price
+DONE

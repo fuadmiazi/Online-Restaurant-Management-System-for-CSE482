@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2022 at 07:03 PM
+-- Generation Time: Dec 13, 2022 at 07:02 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `khanas`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `customer_id` int(11) NOT NULL,
+  `item_name` varchar(50) NOT NULL,
+  `quantity` tinyint(4) NOT NULL DEFAULT 0,
+  `total_price` float NOT NULL,
+  `added_time` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -86,6 +100,13 @@ INSERT INTO `users` (`id`, `name`, `phone`, `email`, `password`, `image_name`) V
 --
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD KEY `customer_id` (`customer_id`),
+  ADD KEY `item_name` (`item_name`);
+
+--
 -- Indexes for table `food_items`
 --
 ALTER TABLE `food_items`
@@ -106,6 +127,17 @@ ALTER TABLE `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`item_name`) REFERENCES `food_items` (`name`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
