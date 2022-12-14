@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+?>
+
+<?php
+if (!isset($_SESSION['id'])) {
+   header('location: login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -132,40 +144,75 @@
 
       <div class="flex justify-between items-start px-64 flex-wrap mb-56 bg-[#282421] relative z-10  pt-20">
          <section class="w-[850px] mb-5">
-            <hr class="mb-5" />
+            <form action="shopping-cart.php" method="POST">
+               <hr class="mb-5" />
 
-            <div class="flex justify-between py-5 pl-5 pr-10 bg-stone-700 rounded-sm mb-5">
-               <div class="flex gap-5">
-                  <img class="w-[150px] h-[120px] object-cover object-bottom" src="images/food1.jpg" alt="" />
-                  <div class="flex flex-col justify-between">
-                     <div class="">
-                        <p class="font-medium mb-2">SomeRandom Burger</p>
-                        <p class="text-sm text-zinc-400">In Stock</p>
+               <?php
+               include("config.php");
+
+               $sql = "SELECT * FROM `cart` WHERE `customer_id` = '{$_SESSION['id']}' ORDER BY `added_time` DESC";
+               $result = $conn->query($sql);
+
+               if ($result->num_rows > 0) {
+                  // output data of each row
+                  while ($row = $result->fetch_assoc()) {
+
+                     echo '<div class="flex justify-between py-5 pl-5 pr-10 bg-stone-700 rounded-sm mb-5">
+                     <div class="flex gap-5">
+                        <img class="w-[150px] h-[120px] object-cover object-bottom" src="images/food1.jpg" alt="" />
+                        <div class="flex flex-col justify-between">
+                           <div class="">
+                              <p class="font-medium mb-2 w-[180px]">' . $row['item_name'] . '</p>
+                              <p class="text-sm text-zinc-400">In Stock</p>
+                           </div>
+                           <div class="">
+                              <button class="delete-btn px-5 py-2 bg-red-500 hover:bg-red-600 rounded">DELETE</button>
+                           </div>
+                        </div>
                      </div>
-                     <div class="">
-                        <button class="px-5 py-2 bg-red-500 hover:bg-red-600 rounded">DELETE</button>
+   
+                     <div class="flex flex-col items-start gap-2">
+                        <p class="font-medium">Each Price</p>
+                        <p class="text-base">' . $row['total_price'] / $row['quantity'] . '</p>
                      </div>
-                  </div>
-               </div>
+                     <div class="flex flex-col items-start gap-2">
+                        <p class="font-medium">Quantity</p>
+                        <input class="text-black w-16 rounded h-8" type="number" name="points" step="1" value="' . $row['quantity'] . '"
+                           min="0" />
+                     </div>
+                     <div class="flex flex-col items-end gap-2">
+                        <p class="font-medium">Total Price</p>
+                        <p class="text-base">' . $row['total_price'] . '</p>
+                     </div>
+                  </div>';
 
-               <div class="flex flex-col items-start gap-2">
-                  <p class="font-medium">Each Price</p>
-                  <p class="text-base">$50</p>
-               </div>
-               <div class="flex flex-col items-start gap-2">
-                  <p class="font-medium">Quantity</p>
-                  <input class="text-black w-16 rounded h-8" type="number" name="points" step="1" value="1" min="0"/>
-               </div>
-               <div class="flex flex-col items-end gap-2">
-                  <p class="font-medium">Total Price</p>
-                  <p class="text-base">$100</p>
-               </div>
-            </div>
+                  }
 
-            <div class="update-btn flex justify-end gap-5 mb-16">
-               <button class="bg-red-500 hover:bg-red-600 h-11 w-44 rounded-sm font-medium">CLEAR ALL</button>
-               <button class="bg-green-600 hover:bg-green-700 h-11 w-44 rounded-sm font-medium">UPDATE</button>
-            </div>
+
+               } else {
+                  echo "0 results";
+               }
+
+               $conn->close();
+
+               ?>
+
+
+
+
+
+
+
+
+
+
+               <div class="update-btn flex justify-end gap-5 mb-16">
+                  <button type="submit"
+                     class="clear-btn bg-red-500 hover:bg-red-600 h-11 w-44 rounded-sm font-medium">CLEAR ALL</button>
+                  <button type="submit"
+                     class="update-btn bg-green-600 hover:bg-green-700 h-11 w-44 rounded-sm font-medium">UPDATE</button>
+               </div>
+            </form>
          </section>
 
          <section class="w-[450px]">

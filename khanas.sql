@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2022 at 07:02 AM
+-- Generation Time: Dec 14, 2022 at 09:14 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -34,6 +34,16 @@ CREATE TABLE `cart` (
   `total_price` float NOT NULL,
   `added_time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`customer_id`, `item_name`, `quantity`, `total_price`, `added_time`) VALUES
+(26, 'Quarter Pounder', 4, 12, '2022-12-14 20:47:29'),
+(26, 'Rafid Cheese Pizza', 2, 6, '2022-12-14 20:47:31'),
+(26, 'Special Cold Coffee', 4, 2, '2022-12-14 20:47:32'),
+(26, 'Smoky BLT Quarter Pounder', 2, 4, '2022-12-15 01:28:41');
 
 -- --------------------------------------------------------
 
@@ -93,7 +103,8 @@ INSERT INTO `users` (`id`, `name`, `phone`, `email`, `password`, `image_name`) V
 (22, 'Elen Chandra ', '15698566', 'chandra@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'propic.jpg'),
 (23, 'Rafid Ahmmad', '155959565', 'rafid.ahmmad.3@northsouth.edu', '25d55ad283aa400af464c76d713c07ad', 'propic.jpg'),
 (24, 'Lal Mia', '1264656565', 'lal@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'propic.jpg'),
-(25, 'Random', '4564545', 'random@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'propic.jpg');
+(25, 'Random', '4564545', 'random@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'propic.jpg'),
+(26, 'rafid1', '1234567', 'rafid1@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'propic.jpg');
 
 --
 -- Indexes for dumped tables
@@ -126,7 +137,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables
