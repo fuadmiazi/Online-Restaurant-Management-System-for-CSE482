@@ -1,15 +1,15 @@
 <?php
-  session_start(); 
+session_start();
 
 //   if (!isset($_SESSION['name'])) {
 //   	$_SESSION['msg'] = "You must log in first";
 //   	header('location: login.php');
 //   }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['name']);
-  	header("location: index.php");
-  }
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['name']);
+    header("location: index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -33,15 +33,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    clifford: "#da373d",
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: "#da373d",
+                    },
                 },
             },
-        },
-    };
+        };
     </script>
     <style type="text/tailwindcss">
         @layer utilities {
@@ -52,53 +52,53 @@
       </style>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <style>
-    html {
-        scroll-behavior: smooth;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body {
-        font-family: "Montserrat";
-    }
+        body {
+            font-family: "Montserrat";
+        }
 
-    .bg-main {
-        background-image: url(images/bg-img.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-    }
+        .bg-main {
+            background-image: url(images/bg-img.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
 
-    .title {
-        font-family: "Sofia", cursive;
-    }
+        .title {
+            font-family: "Sofia", cursive;
+        }
 
-    .scroll-container {
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        scroll-behavior: smooth;
-    }
+        .scroll-container {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-    .scroll-child {
-        scroll-snap-align: start;
-        flex: none;
-    }
+        .scroll-child {
+            scroll-snap-align: start;
+            flex: none;
+        }
 
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
 
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
 
-    ::-webkit-scrollbar-thumb {
-        background: #888;
-    }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
 
-    ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
     </style>
 </head>
 
@@ -127,11 +127,13 @@
                         <ul class="flex gap-10 text-sm">
                             <?php if (!isset($_SESSION['name'])): ?>
                             <li class="hover:text-yellow-500 transition-all duration-75"><a href="login.php">SIGN IN</a>
-                            <?php endif ?>
+                                <?php endif ?>
                             </li>
                             <?php if (isset($_SESSION['name'])): ?>
                             <li class="hover:text-yellow-500 transition-all duration-75 uppercase"><a
-                                    href="profile-page.php"><?php echo $_SESSION['name']; ?></a>
+                                    href="profile-page.php">
+                                    <?php echo $_SESSION['name']; ?>
+                                </a>
                             </li>
                             <?php endif ?>
                             <li class="hover:text-yellow-500 transition-all duration-75"><a href="">FEEDBACK</a></li>
@@ -143,8 +145,8 @@
                             <?php endif ?>
 
                             <?php if (!isset($_SESSION['name'])): ?>
-                            <li class="hover:text-yellow-500 transition-all duration-75"><a
-                                    href="register.php">JOIN US</a>
+                            <li class="hover:text-yellow-500 transition-all duration-75"><a href="register.php">JOIN
+                                    US</a>
                             </li>
                             <?php endif ?>
 
@@ -311,10 +313,11 @@
                             <li class="py-2 bg-green-600 rounded">Ketchup</li>
                         </ol>
                     </div>
-                    <button
-                        class="text-white border-2 w-[190px] py-2 uppercase transition-all duration-100 hover:bg-gray-200 hover:bg-opacity-70 hover:font-medium hover:text-neutral-900">
-                        Order now
-                    </button>
+                    <a href="order-page.php"><button
+                            class="text-white border-2 w-[190px] py-2 uppercase transition-all duration-100 hover:bg-gray-200 hover:bg-opacity-70 hover:font-medium hover:text-neutral-900">
+                            Order now
+                        </button></a>
+
                 </div>
                 <div class="about-us-home-pic h-screen">
                     <div class="main-filter h-screen bg-black opacity-20 w-[50vw] absolute top-0 right-0 z-50"></div>

@@ -39,6 +39,7 @@ if (isset($_POST['reg_user'])) {
   	$_SESSION['name'] = $name;
     $_SESSION['phone'] = $phone;
     $_SESSION['email'] = $email;
+    $_SESSION['id'] = $id;
   	$_SESSION['success'] = "You are registered successfully";
   	header('location: index.php');
   }

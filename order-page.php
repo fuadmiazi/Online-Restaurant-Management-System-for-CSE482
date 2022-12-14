@@ -1,3 +1,6 @@
+<?php session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -190,7 +193,24 @@
                         " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
                         </g>
                     </svg>
-                    <div class="absolute -bottom-1 -right-1 bg-green-600 text-xs px-2 py-1 rounded-full">0</div>
+                    <div id="cart-count"
+                        class="absolute -bottom-1 -right-1 bg-green-600 text-xs px-2 py-1 rounded-full">
+                        <?php
+                        if (isset($_SESSION['id'])) {
+                            include("config.php");
+                            $query = "SELECT SUM(quantity) AS 'total_quantity' FROM cart WHERE customer_id = '{$_SESSION['id']}';";
+                            $result = mysqli_query($conn, $query);
+                            $row = mysqli_fetch_assoc($result);
+                            if ($row['total_quantity'] != NULL) {
+                                echo $row['total_quantity'];
+                            } else {
+                                echo "0";
+                            }
+                        } else {
+                            echo "0";
+                        }
+                        ?>
+                    </div>
                 </button>
             </a>
         </div>
@@ -257,25 +277,23 @@
             </div>
         </div>
 
-        <form action="" method="post">
+        <div class="bg-[#282421] pt-12 z-50 relative  mx-64">
+            <p class="foodItems-title text-xl font-medium mb-14">Food Item List</p>
 
-            <div class="bg-[#282421] pt-12 z-50 relative  mx-64">
-                <p class="foodItems-title text-xl font-medium mb-14">Food Item List</p>
+            <div class="foodItems grid grid-cols-4 whitespace-nowrap pb-44 w-full gap-8" id="everyFoodItems">
 
-                <div class="foodItems grid grid-cols-4 whitespace-nowrap pb-44 w-full gap-8" id="everyFoodItems">
+                <?php
 
-                    <?php
+                include("config.php");
 
-                    include("config.php");
+                $sql = "SELECT * FROM `food_items` ORDER BY `added_time` DESC";
+                $result = $conn->query($sql);
 
-                    $sql = "SELECT * FROM `food_items` ORDER BY `added_time` DESC";
-                    $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
 
-                    if ($result->num_rows > 0) {
-                        // output data of each row
-                        while ($row = $result->fetch_assoc()) {
-
-                            echo '<div
+                        echo '<div
             class="' . $row["type"] . ' rounded overflow-hidden bg-[#322d29] h-[400px] hover:scale-[1.02] transition-all duration-200">
             <a class="" href=""><img class="w-full h-[200px] object-cover" src="images/' . $row["image_name"] . '" alt=""
                     style="object-position: 20% 75%" />
@@ -287,30 +305,28 @@
                         <p>Ordered: ' . $row["ordered"] . '</p>
                     </div>
                     <div class="flex justify-center items-center">
-                        <button class="px-4 py-2 mt-7 bg-green-500 hover:bg-green-600 w-full rounded">Add To Cart</button>
+                        <button class="add-to-cart-btn px-4 py-2 mt-7 bg-green-500 hover:bg-green-600 w-full rounded">Add To Cart</button>
                     </div>
                 </div>
             </a>
         </div>';
 
-                        }
-
-
-                    } else {
-                        echo "0 results";
                     }
 
-                    $conn->close();
 
-                    ?>
+                } else {
+                    echo "0 results";
+                }
 
-        </form>
+                $conn->close();
+
+                ?>
 
 
-    </div>
-    </div>
+            </div>
+        </div>
 
-    <?php require "footer.php" ?>
+        <?php require "footer.php" ?>
     </div>
     <script type="text/javascript">
 
@@ -399,7 +415,6 @@
                 dataType: "json",
                 success: function (data) {
                     SortData = data;
-
                 }
             })
         })
@@ -422,7 +437,25 @@
             }
         });
 
+        $(".add-to-cart-btn").click(function (event) {
+            event.preventDefault();
+            const itemName = $(this).parent().parent().children()[0].innerText;
+            $.ajax({
+                url: "add-to-cart.php",
+                method: "POST",
+                data: {
+                    itemName: itemName
+                },
+                success: function (data) {
+                    if (data == -1) {
+                        window.location.href = 'login.php';
+                    } else {
+                        $("#cart-count").html(data);
+                    }
 
+                }
+            })
+        })
     </script>
 </body>
 
