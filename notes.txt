@@ -16,3 +16,11 @@ Shopping cart database model
     quantity
     total price
 DONE
+
+
+OVERVIEW - What is it? Purpose?
+FEATURES - What are the features? Most important to least important, Login, Search, etc.
+TECHNICAL - Cookiee, Technologies, Lazy loading, APIs, Responsive, CSS animation, Optimization etc.
+DEMO - Show the project. Login and Registration should be done beforehand. 
+Show the most important feature which was mentioned in the use case. 
+Login registration shouldnt be the most important feature.

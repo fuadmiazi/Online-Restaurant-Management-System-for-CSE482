@@ -10,6 +10,7 @@ if (!isset($_SESSION['id'])) {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -144,25 +145,25 @@ if (!isset($_SESSION['id'])) {
 
       <div class="flex justify-between items-start px-64 flex-wrap mb-56 bg-[#282421] relative z-10  pt-20">
          <section class="w-[850px] mb-5">
-            <form action="shopping-cart.php" method="POST">
-               <hr class="mb-5" />
 
-               <?php
-               include("config.php");
+            <hr class="hr-line-items mb-5" />
 
-               $sql = "SELECT * FROM `cart` WHERE `customer_id` = '{$_SESSION['id']}' ORDER BY `added_time` DESC";
-               $result = $conn->query($sql);
+            <?php
+            include("config.php");
 
-               if ($result->num_rows > 0) {
-                  // output data of each row
-                  while ($row = $result->fetch_assoc()) {
+            $sql = "SELECT * FROM `cart` WHERE `customer_id` = '{$_SESSION['id']}' ORDER BY `added_time` DESC";
+            $result = $conn->query($sql);
 
-                     echo '<div class="flex justify-between py-5 pl-5 pr-10 bg-stone-700 rounded-sm mb-5">
+            if ($result->num_rows > 0) {
+               // output data of each row
+               while ($row = $result->fetch_assoc()) {
+
+                  echo '<div class="fetched-items flex justify-between py-5 pl-5 pr-10 bg-stone-700 rounded-sm mb-5">
                      <div class="flex gap-5">
                         <img class="w-[150px] h-[120px] object-cover object-bottom" src="images/food1.jpg" alt="" />
                         <div class="flex flex-col justify-between">
                            <div class="">
-                              <p class="font-medium mb-2 w-[180px]">' . $row['item_name'] . '</p>
+                              <p class="item_name font-medium mb-2 w-[180px]">' . $row['item_name'] . '</p>
                               <p class="text-sm text-zinc-400">In Stock</p>
                            </div>
                            <div class="">
@@ -186,33 +187,23 @@ if (!isset($_SESSION['id'])) {
                      </div>
                   </div>';
 
-                  }
-
-
-               } else {
-                  echo "0 results";
                }
 
-               $conn->close();
 
-               ?>
+            } else {
+               echo "0 items found in the cart";
+            }
 
+            $conn->close();
 
+            ?>
 
+            <div class="update-btn flex justify-end gap-5 mb-16">
+               <button class="clear-btn bg-red-500 hover:bg-red-600 h-11 w-44 rounded-sm font-medium">CLEAR ALL</button>
+               <button
+                  class="update-btn bg-green-600 hover:bg-green-700 h-11 w-44 rounded-sm font-medium">UPDATE</button>
+            </div>
 
-
-
-
-
-
-
-               <div class="update-btn flex justify-end gap-5 mb-16">
-                  <button type="submit"
-                     class="clear-btn bg-red-500 hover:bg-red-600 h-11 w-44 rounded-sm font-medium">CLEAR ALL</button>
-                  <button type="submit"
-                     class="update-btn bg-green-600 hover:bg-green-700 h-11 w-44 rounded-sm font-medium">UPDATE</button>
-               </div>
-            </form>
          </section>
 
          <section class="w-[450px]">
@@ -223,7 +214,15 @@ if (!isset($_SESSION['id'])) {
                   <input class="rounded-l-sm text-black" type="text" name="" id="" placeholder="E.g. RAF2012" />
                   <button class="bg-stone-800 w-full">Submit</button>
                </div>
-               <div class="mt-10">
+               <?php
+               include("config.php");
+
+               $sql = "SELECT SUM(total_price) AS `sum_price` FROM `cart` WHERE `customer_id` = '{$_SESSION['id']}'";
+               $result = $conn->query($sql);
+
+               if ($result->num_rows > 0) {
+                  $row = $result->fetch_assoc();
+                  echo '<div class="mt-10">
                   <div class="flex justify-between mb-3">
                      <div class="">Shipping Cost</div>
                      <div class="">$2</div>
@@ -233,13 +232,20 @@ if (!isset($_SESSION['id'])) {
                      <div class="">-$0</div>
                   </div>
                   <div class="flex justify-between mb-3">
-                     <div class="">Tax</div>
+                     <div class="">Tax (<span class="font-medium">7%</span>)</div>
                      <div class="">$2</div>
                   </div>
                   <div class="flex justify-between mb-2 font-semibold text-lg mt-4">
                      <div class="">Estimated Total</div>
-                     <div class="">$10</div>
-                  </div>
+                     <div class="">$' . $row["sum_price"] . ' </div>
+                  </div>';
+               }
+
+
+               $conn->close();
+
+               ?>
+               
                   <div class="grid w-full grid-cols-2 space-x-2 rounded-sm bg-gray-200 p-2 text-black mt-5"
                      x-data="app">
                      <div class="option-btn">
@@ -271,6 +277,42 @@ if (!isset($_SESSION['id'])) {
    </div>
 
    <script>
+
+      $(".update-btn").click(function () {
+         location.reload(true);
+      })
+
+
+
+      $(".clear-btn").click(function (event) {
+         $.ajax({
+            url: "delete-item.php",
+            method: "POST",
+            data: {
+               allItem: "allItem"
+            },
+            success: function (data) {
+               $(".fetched-items").css("display", "none");
+            }
+         })
+      });
+
+      $(".delete-btn").click(function (event) {
+         event.preventDefault();
+         let theEventItem = $(this).parent().parent().parent().parent();
+         let itemName = $(this).parent().parent().children().children(0).html();
+
+         $.ajax({
+            url: "delete-item.php",
+            method: "POST",
+            data: {
+               itemName: itemName
+            },
+            success: function (data) {
+               theEventItem.css("display", "none");
+            }
+         })
+      })
 
       $(".option-btn").click(function (e) {
          if (e.target.id == "delivery") {
