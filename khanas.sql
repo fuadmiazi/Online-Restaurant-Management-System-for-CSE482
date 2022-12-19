@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2022 at 09:14 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Dec 19, 2022 at 08:01 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `cart` (
   `quantity` tinyint(4) NOT NULL DEFAULT 0,
   `total_price` float NOT NULL,
   `added_time` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `cart`
@@ -42,8 +42,7 @@ CREATE TABLE `cart` (
 INSERT INTO `cart` (`customer_id`, `item_name`, `quantity`, `total_price`, `added_time`) VALUES
 (26, 'Quarter Pounder', 4, 12, '2022-12-14 20:47:29'),
 (26, 'Rafid Cheese Pizza', 2, 6, '2022-12-14 20:47:31'),
-(26, 'Special Cold Coffee', 4, 2, '2022-12-14 20:47:32'),
-(26, 'Smoky BLT Quarter Pounder', 2, 4, '2022-12-15 01:28:41');
+(26, 'Special Cold Coffee', 4, 2, '2022-12-14 20:47:32');
 
 -- --------------------------------------------------------
 
@@ -59,7 +58,7 @@ CREATE TABLE `food_items` (
   `ordered` mediumint(9) NOT NULL DEFAULT 0,
   `image_name` varchar(1024) NOT NULL DEFAULT 'food1.jpg',
   `added_time` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `food_items`
@@ -77,6 +76,49 @@ INSERT INTO `food_items` (`type`, `name`, `description`, `price`, `ordered`, `im
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `transaction_info`
+--
+
+CREATE TABLE `transaction_info` (
+  `transaction_id` int(50) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `order_type` varchar(15) NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
+  `payment_method` varchar(20) NOT NULL,
+  `delivery_address` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transaction_info`
+--
+
+INSERT INTO `transaction_info` (`transaction_id`, `customer_id`, `order_type`, `date`, `payment_method`, `delivery_address`) VALUES
+(14, 26, 'pre-order', '2022-12-20 00:41:03', 'cash', NULL),
+(15, 26, 'pre-order', '2022-12-20 00:55:46', 'cash', NULL),
+(16, 26, 'pre-order', '2022-12-20 00:59:11', 'cash', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaction_items`
+--
+
+CREATE TABLE `transaction_items` (
+  `transaction_id` int(11) NOT NULL,
+  `item_name` text NOT NULL,
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transaction_items`
+--
+
+INSERT INTO `transaction_items` (`transaction_id`, `item_name`, `quantity`) VALUES
+(14, 'Quarter Pounder', 4);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -87,7 +129,7 @@ CREATE TABLE `users` (
   `email` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
   `image_name` varchar(1024) NOT NULL DEFAULT 'propic.jpg'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -124,6 +166,12 @@ ALTER TABLE `food_items`
   ADD PRIMARY KEY (`name`);
 
 --
+-- Indexes for table `transaction_info`
+--
+ALTER TABLE `transaction_info`
+  ADD PRIMARY KEY (`transaction_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -132,6 +180,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `transaction_info`
+--
+ALTER TABLE `transaction_info`
+  MODIFY `transaction_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -1,0 +1,27 @@
+<?php
+
+session_start();
+
+?>
+
+<?php
+
+include("config.php");
+if (isset($_POST['orderType']) && isset($_POST['paymentMethod'])) {
+    $orderType = $_POST['orderType'];
+    $paymentMethod = $_POST['paymentMethod'];
+    $query = "INSERT INTO `transaction_info` (customer_id, order_type, payment_method) VALUES ('{$_SESSION['id']}', '{$orderType}', '{$paymentMethod}');";
+    mysqli_query($conn, $query);
+    $query = "SELECT `transaction_id` FROM `transaction_info` ORDER BY `date` DESC LIMIT 1;";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $transaction_id = $row['transaction_id'];
+
+    $query = "INSERT INTO `transaction_items`(transaction_id,item_name,quantity) VALUES ('{$transaction_id}', (SELECT item_name FROM `cart` WHERE customer_id = '{$_SESSION['id']}' LIMIT 1), (SELECT quantity FROM `cart` WHERE customer_id = '{$_SESSION['id']}' LIMIT 1))";
+    mysqli_query($conn, $query);
+
+} else {
+    echo -1;
+}
+
+?>

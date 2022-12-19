@@ -245,44 +245,57 @@ if (!isset($_SESSION['id'])) {
                $conn->close();
 
                ?>
-               
-                  <div class="grid w-full grid-cols-2 space-x-2 rounded-sm bg-gray-200 p-2 text-black mt-5"
-                     x-data="app">
-                     <div class="option-btn">
-                        <input type="radio" name="option" id="delivery" class="peer hidden" required />
-                        <label for="delivery"
-                           class="block cursor-pointer select-none rounded-sm p-2 text-center peer-checked:bg-stone-800  peer-checked:font-bold peer-checked:text-white">Delivery</label>
-                     </div>
 
-                     <div class="option-btn">
-                        <input type="radio" name="option" id="pre-order" class="peer hidden" required checked />
-                        <label for="pre-order"
-                           class="block cursor-pointer select-none rounded-sm p-2 text-center peer-checked:bg-stone-800  peer-checked:font-bold peer-checked:text-white">Pre-Order</label>
-                     </div>
-
-
+               <div class="grid w-full grid-cols-2 space-x-2 rounded-sm bg-gray-200 p-2 text-black mt-5" x-data="app">
+                  <div class="option-btn">
+                     <input type="radio" value="delivery" name="option" id="delivery" class="del-type peer hidden"
+                        required />
+                     <label for="delivery"
+                        class="block cursor-pointer select-none rounded-sm p-2 text-center peer-checked:bg-stone-800  peer-checked:font-bold peer-checked:text-white">Delivery</label>
                   </div>
-                  <div class="w-full">
-                     <button
-                        class="mt-10 mb-2 bg-yellow-400 hover:bg-yellow-500 text-black font-bold rounded-sm w-full h-11 flex justify-center items-center gap-1">
-                        <img class="w-4 -translate-y-[1.5px]" src="images/lock.svg" alt="" />
-                        <p>CHECKOUT</p>
-                     </button>
+
+                  <div class="option-btn">
+                     <input type="radio" value="pre-order" name="option" id="pre-order" class="del-type peer hidden"
+                        required checked />
+                     <label for="pre-order"
+                        class="block cursor-pointer select-none rounded-sm p-2 text-center peer-checked:bg-stone-800  peer-checked:font-bold peer-checked:text-white">Pre-Order</label>
                   </div>
                </div>
-            </form>
-         </section>
+
+               <div class="w-full">
+                  <button id="checkout-btn"
+                     class="mt-10 mb-2 bg-yellow-400 hover:bg-yellow-500 text-black font-bold rounded-sm w-full h-11 flex justify-center items-center gap-1">
+                     <img class="w-4 -translate-y-[1.5px]" src="images/lock.svg" alt="" />
+                     <p>CHECKOUT</p>
+                  </button>
+               </div>
       </div>
-      <?php require "footer.php" ?>
+      </form>
+      </section>
+   </div>
+   <?php require "footer.php" ?>
    </div>
 
    <script>
 
-      $(".update-btn").click(function () {
-         location.reload(true);
+      $("#checkout-btn").click(function (event) {
+         event.preventDefault();
+         if ($(".del-type:checked").val() == "pre-order") {
+            $.ajax({
+               url: "pre-order-transaction.php",
+               method: "POST",
+               data: {
+                  orderType: "pre-order",
+                  paymentMethod: "cash"
+               }
+            })
+         }
       })
 
 
+      $(".update-btn").click(function () {
+         location.reload(true);
+      })
 
       $(".clear-btn").click(function (event) {
          $.ajax({
