@@ -17,9 +17,13 @@ if (isset($_POST['orderType']) && isset($_POST['paymentMethod'])) {
     $row = mysqli_fetch_assoc($result);
     $transaction_id = $row['transaction_id'];
 
-    $query = "INSERT INTO `transaction_items`(transaction_id,item_name,quantity) VALUES ('{$transaction_id}', (SELECT item_name FROM `cart` WHERE customer_id = '{$_SESSION['id']}' LIMIT 1), (SELECT quantity FROM `cart` WHERE customer_id = '{$_SESSION['id']}' LIMIT 1))";
+    $query = "INSERT INTO transaction_items(transaction_id,item_name,quantity) SELECT '{$transaction_id}', item_name, quantity FROM `cart` WHERE customer_id = '{$_SESSION['id']}'";
     mysqli_query($conn, $query);
 
+    $query = "DELETE FROM `cart` WHERE customer_id = '{$_SESSION['id']}'";
+    mysqli_query($conn, $query);
+
+    echo $transaction_id;
 } else {
     echo -1;
 }

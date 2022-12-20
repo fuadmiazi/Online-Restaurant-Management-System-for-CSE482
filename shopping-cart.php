@@ -279,7 +279,6 @@ if (!isset($_SESSION['id'])) {
    <script>
 
       $("#checkout-btn").click(function (event) {
-         event.preventDefault();
          if ($(".del-type:checked").val() == "pre-order") {
             $.ajax({
                url: "pre-order-transaction.php",
@@ -287,6 +286,8 @@ if (!isset($_SESSION['id'])) {
                data: {
                   orderType: "pre-order",
                   paymentMethod: "cash"
+               }, success: function (data) {
+                     window.location.replace("success.php?tran_id=" + data +"&success=successful");
                }
             })
          }
