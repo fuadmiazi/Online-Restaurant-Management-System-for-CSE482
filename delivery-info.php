@@ -100,14 +100,14 @@
 <body class="bg-[#282421] overflow-x-hidden text-white pb-20">
    <p class="text-right font-medium text-lg px-64 mb-5">Delivery Info</p>
    <hr class="mb-16 mx-64" />
-   <form class="px-64 grid grid-cols-4 gap-x-16 gap-y-8 font-medium" action="">
+   <div class="px-64 grid grid-cols-4 gap-x-16 gap-y-8 font-medium">
       <div class="">
-         <label class="block text-sm mb-3" for="name">Name</label> <input class="rounded w-full text-black"
-            type="text" />
+         <label class="block text-sm mb-3" for="del-name">Name</label>
+         <input class="rounded w-full text-black" type="text" id="del-name" required/>
       </div>
       <div class="col-span-1">
-         <label class="block text-sm mb-3" for="thana">Thana</label>
-         <select class="rounded w-full text-black" name="thana" id="thana">
+         <label class="block text-sm mb-3" for="del-thana">Thana</label>
+         <select class="rounded w-full text-black" name="del-thana" id="del-thana">
             <option value="mirpur">Mirpur</option>
             <option value="dhanmondi">Dhanmondi</option>
             <option value="mohammadpur">Mohammadpur</option>
@@ -115,24 +115,25 @@
          </select>
       </div>
       <div class="col-span-2">
-         <label class="text-right block text-sm mb-3" for="streetAd">Street Address</label>
-         <input class="rounded w-full text-black" type="text" />
+         <label class="text-right block text-sm mb-3" for="del-streetAd">Street Address</label>
+         <input class="rounded w-full text-black" id="del-streetAd" type="text" required/>
       </div>
       <div class="col-span-2">
-         <label class="block text-sm mb-3" for="phone">Phone Number</label> <input class="rounded w-full text-black"
-            type="text" />
+         <label class="block text-sm mb-3" for="del-phone">Phone Number</label> 
+         <input class="rounded w-full text-black" id="del-phone"
+            type="text" required/>
       </div>
       <div class="col-span-1">
-         <label class="text-right block text-sm mb-3" for="district">District</label>
-         <select class="rounded w-full text-black" name="thana" id="thana">
+         <label class="text-right block text-sm mb-3" for="del-district">District</label>
+         <select class="rounded w-full text-black" name="del-district" id="del-district">
             <option value="dhaka">Dhaka</option>
          </select>
       </div>
       <div class="col-span-1">
-         <label class="text-right block text-sm mb-3" for="postal">Postal Code</label>
-         <input class="rounded w-full text-black" type="number" id="postal" />
+         <label class="text-right block text-sm mb-3" for="del-postal">Postal Code</label>
+         <input class="rounded w-full text-black" type="number" id="del-postal" required/>
       </div>
-   </form>
+   </div>
 </body>
 
 </html>

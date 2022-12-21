@@ -32,7 +32,7 @@ if (!isset($_SESSION['id'])) {
    <script src="https://cdn.tailwindcss.com"></script>
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-   
+
    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    <script>
       tailwind.config = {
@@ -123,7 +123,7 @@ if (!isset($_SESSION['id'])) {
          }
       }
 
-      .swal2-confirm{
+      .swal2-confirm {
          padding-left: 80px;
          padding-right: 80px;
       }
@@ -227,7 +227,12 @@ if (!isset($_SESSION['id'])) {
 
                if ($result->num_rows > 0) {
                   $row = $result->fetch_assoc();
-                  echo '<div class="mt-10">
+
+                  if ($row["sum_price"] != NULL) {
+                     $total_price = $row["sum_price"];
+                     $tax = sprintf('%0.2f', $total_price * 0.07);
+                     $grand_total = sprintf('%0.2f', $total_price + $tax + 2);
+                     echo '<div class="mt-10">
                   <div class="flex justify-between mb-3">
                      <div class="">Shipping Cost</div>
                      <div class="">$2</div>
@@ -238,12 +243,35 @@ if (!isset($_SESSION['id'])) {
                   </div>
                   <div class="flex justify-between mb-3">
                      <div class="">Tax (<span class="font-medium">7%</span>)</div>
-                     <div class="">$2</div>
+                     <div class="">$' . $tax . '</div>
+                  </div>
+                  <div class="flex justify-between mb-3">
+                     <div class="">Product Total</div>
+                     <div class="">$' . $total_price . '</div>
                   </div>
                   <div class="flex justify-between mb-2 font-semibold text-lg mt-4">
                      <div class="">Estimated Total</div>
-                     <div class="">$' . $row["sum_price"] . ' </div>
+                     <div class="">$' . $grand_total . ' </div>
                   </div>';
+                  } else {
+                     echo '<div class="mt-10">
+                  <div class="flex justify-between mb-3">
+                     <div class="">Shipping Cost</div>
+                     <div class="">$0</div>
+                  </div>
+                  <div class="flex justify-between mb-3">
+                     <div class="">Discount</div>
+                     <div class="">-$0</div>
+                  </div>
+                  <div class="flex justify-between mb-3">
+                     <div class="">Tax (<span class="font-medium">7%</span>)</div>
+                     <div class="">$0</div>
+                  </div>
+                  <div class="flex justify-between mb-2 font-semibold text-lg mt-4">
+                     <div class="">Estimated Total</div>
+                     <div class="">$0</div>
+                  </div>';
+                  }
                }
 
 
@@ -280,7 +308,7 @@ if (!isset($_SESSION['id'])) {
    </div>
    <?php require "footer.php" ?>
    </div>
-   
+
    <?php
    if (isset($_GET["cart"])) {
       echo "<script>Swal.fire({
@@ -290,11 +318,18 @@ if (!isset($_SESSION['id'])) {
        }).then(function(){
          window.location.replace('order-page.php');
        })</script>";
+   } else if (isset($_GET["form"])) {
+      echo "<script>Swal.fire({
+         icon: 'warning',
+         title: 'Empty delivery form!',
+         text: 'Complete all the details in the form.'
+       })</script>";
    }
    ?>
 
    <script>
-      $("#checkout-btn").click(function (event) {
+      $("#checkout-btn").click(function (event) {   
+
          if ($(".del-type:checked").val() == "pre-order") {
             $.ajax({
                url: "pre-order-transaction.php",
@@ -309,6 +344,31 @@ if (!isset($_SESSION['id'])) {
                   else {
                      window.location.replace("success.php?tran_id=" + data + "&success=successful");
 
+                  }
+               }
+            })
+         } else if ($(".del-type:checked").val() == "delivery") {
+            $.ajax({
+               url: "delivery-transaction.php",
+               method: "POST",
+               data: {
+                  orderType: "delivery",
+                  paymentMethod: "cash",
+                  delName: $("#del-name").val().trim(),
+                  delThana: $("#del-thana").val().trim(),
+                  delStreetAd: $("#del-streetAd").val().trim(),
+                  delPhone: $("#del-phone").val().trim(),
+                  delDistrict: $("#del-district").val().trim(),
+                  delPostal: $("#del-postal").val().trim()
+               }, success: function (data) {
+                  if (data == -1) {
+                     window.location.replace("shopping-cart.php?cart=empty");
+                  }
+                  else if (data == -3) {
+                     window.location.replace("shopping-cart.php?form=incomplete");
+                  }
+                  else {
+                     window.location.replace("success.php?tran_id=" + data + "&success=successful");
                   }
                }
             })

@@ -335,6 +335,7 @@
 
 
             $("#EveryButton").click(() => {
+                $("#everyFoodItems").html("");
                 $.each(data, (index, value) => {
                     $("#everyFoodItems").append(value);
                 })
@@ -435,6 +436,28 @@
             else if (this.value == 'desc') {
                 $("#everyFoodItems").html(SortData[4]);
             }
+
+
+            $(".add-to-cart-btn").click(function (event) {
+                event.preventDefault();
+                const itemName = $(this).parent().parent().children()[0].innerText;
+                $.ajax({
+                    url: "add-to-cart.php",
+                    method: "POST",
+                    data: {
+                        itemName: itemName
+                    },
+                    success: function (data) {
+                        if (data == -1) {
+                            window.location.href = 'login.php';
+                        } else {
+                            $("#cart-count").html(data);
+                        }
+
+                    }
+                })
+            })
+
         });
 
         $(".add-to-cart-btn").click(function (event) {
