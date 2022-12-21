@@ -10,7 +10,6 @@ if (!isset($_SESSION['id'])) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +32,8 @@ if (!isset($_SESSION['id'])) {
    <script src="https://cdn.tailwindcss.com"></script>
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-
+   
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    <script>
       tailwind.config = {
          theme: {
@@ -121,6 +121,11 @@ if (!isset($_SESSION['id'])) {
          100% {
             height: 0%;
          }
+      }
+
+      .swal2-confirm{
+         padding-left: 80px;
+         padding-right: 80px;
       }
    </style>
 </head>
@@ -275,9 +280,20 @@ if (!isset($_SESSION['id'])) {
    </div>
    <?php require "footer.php" ?>
    </div>
+   
+   <?php
+   if (isset($_GET["cart"])) {
+      echo "<script>Swal.fire({
+         icon: 'warning',
+         title: 'The cart is empty!',
+         text: 'Add some items first.'
+       }).then(function(){
+         window.location.replace('order-page.php');
+       })</script>";
+   }
+   ?>
 
    <script>
-
       $("#checkout-btn").click(function (event) {
          if ($(".del-type:checked").val() == "pre-order") {
             $.ajax({
@@ -287,7 +303,13 @@ if (!isset($_SESSION['id'])) {
                   orderType: "pre-order",
                   paymentMethod: "cash"
                }, success: function (data) {
-                     window.location.replace("success.php?tran_id=" + data +"&success=successful");
+                  if (data == -1) {
+                     window.location.replace("shopping-cart.php?cart=empty");
+                  }
+                  else {
+                     window.location.replace("success.php?tran_id=" + data + "&success=successful");
+
+                  }
                }
             })
          }
@@ -346,8 +368,6 @@ if (!isset($_SESSION['id'])) {
                });
          }
       });
-
-
    </script>
 </body>
 

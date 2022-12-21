@@ -110,7 +110,7 @@
             <div class="profile flex flex-col justify-center items-center mt-[100px] mb-[150px]">
                 <div class="pic-name-profile flex justify-center items-center gap-14 mb-32">
                     <div class="profile-pic">
-                        <img class="rounded-full w-[250px] h-[250px] object-cover object-top" src=""
+                        <img class="rounded-full w-[250px] h-[250px] object-cover object-top" src="images/propic.jpg"
                             alt="" />
                     </div>
                     <div class="profile-name text-white">

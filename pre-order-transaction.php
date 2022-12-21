@@ -7,23 +7,31 @@ session_start();
 <?php
 
 include("config.php");
-if (isset($_POST['orderType']) && isset($_POST['paymentMethod'])) {
-    $orderType = $_POST['orderType'];
-    $paymentMethod = $_POST['paymentMethod'];
-    $query = "INSERT INTO `transaction_info` (customer_id, order_type, payment_method) VALUES ('{$_SESSION['id']}', '{$orderType}', '{$paymentMethod}');";
-    mysqli_query($conn, $query);
-    $query = "SELECT `transaction_id` FROM `transaction_info` ORDER BY `date` DESC LIMIT 1;";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
-    $transaction_id = $row['transaction_id'];
 
-    $query = "INSERT INTO transaction_items(transaction_id,item_name,quantity) SELECT '{$transaction_id}', item_name, quantity FROM `cart` WHERE customer_id = '{$_SESSION['id']}'";
-    mysqli_query($conn, $query);
+$sql = "SELECT * FROM `cart` WHERE customer_id='{$_SESSION['id']}'";
+$result = $conn->query($sql);
 
-    $query = "DELETE FROM `cart` WHERE customer_id = '{$_SESSION['id']}'";
-    mysqli_query($conn, $query);
+if ($result->num_rows > 0) {
+    if (isset($_POST['orderType']) && isset($_POST['paymentMethod'])) {
+        $orderType = $_POST['orderType'];
+        $paymentMethod = $_POST['paymentMethod'];
+        $query = "INSERT INTO `transaction_info` (transaction_id, customer_id, order_type, payment_method) VALUES (uuid(), '{$_SESSION['id']}', '{$orderType}', '{$paymentMethod}');";
+        mysqli_query($conn, $query);
+        $query = "SELECT `transaction_id` FROM `transaction_info` ORDER BY `date` DESC LIMIT 1;";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($result);
+        $transaction_id = $row['transaction_id'];
 
-    echo $transaction_id;
+        $query = "INSERT INTO transaction_items(transaction_id,item_name,quantity) SELECT '{$transaction_id}', item_name, quantity FROM `cart` WHERE customer_id = '{$_SESSION['id']}'";
+        mysqli_query($conn, $query);
+
+        $query = "DELETE FROM `cart` WHERE customer_id = '{$_SESSION['id']}'";
+        mysqli_query($conn, $query);
+
+        echo $transaction_id;
+    } else {
+        echo -2;
+    }
 } else {
     echo -1;
 }

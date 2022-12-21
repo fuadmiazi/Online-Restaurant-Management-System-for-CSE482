@@ -35,6 +35,13 @@ include('server.php')
                 <a href="index.php"><img id="khanas-logo" src="https://i.ibb.co/1qZfbwX/khanas.png" alt=""></a>
                 <h1>Login</h1>
 
+                <p style="margin: 20px 0; font-weight: bold;"><?php
+                if (isset($_GET["reg"]) && isset($_GET["login"])) {
+                    echo "Register Done! Login to continue.";
+                 }
+                ?></p>
+                
+
                 <form method="POST" action="login.php">
                     <?php include('errors.php'); ?>
                     <div class="mb-3">

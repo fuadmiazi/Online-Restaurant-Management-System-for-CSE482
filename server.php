@@ -33,15 +33,14 @@ if (isset($_POST['reg_user'])) {
   if (count($errors) == 0) {
   	$password = md5($password);
 
-  	$query = "INSERT INTO users (name, email, phone, password) 
-  			  VALUES('$name', '$email', $phone, '$password')";
+  	$query = "INSERT INTO users (id, name, email, phone, password) 
+  			  VALUES(uuid(), '$name', '$email', $phone, '$password')";
   	mysqli_query($db, $query);
-  	$_SESSION['name'] = $name;
-    $_SESSION['phone'] = $phone;
-    $_SESSION['email'] = $email;
-    $_SESSION['id'] = $id;
+  	// $_SESSION['name'] = $name;
+    // $_SESSION['phone'] = $phone;
+    // $_SESSION['email'] = $email;
   	$_SESSION['success'] = "You are registered successfully";
-  	header('location: index.php');
+  	header('location: login.php?reg=true&login=false');
   }
 }
 

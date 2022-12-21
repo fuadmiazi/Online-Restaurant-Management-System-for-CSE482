@@ -272,7 +272,7 @@
             <p class="text-xl mb-14 font-medium px-64">
                 Search Result</p>
             <div class="px-64 mb-12">
-                <div class=" foodItems grid grid-cols-4 gap-8 transition-all" id="searchresult">
+                <div class="foodItems grid grid-cols-4 gap-8 transition-all" id="searchresult">
                 </div>
             </div>
         </div>
@@ -296,7 +296,7 @@
                         echo '<div
             class="' . $row["type"] . ' rounded overflow-hidden bg-[#322d29] h-[400px] hover:scale-[1.02] transition-all duration-200">
             <a class="" href=""><img class="w-full h-[200px] object-cover" src="images/' . $row["image_name"] . '" alt=""
-                    style="object-position: 20% 75%" />
+                    style="object-position: 20% 20%" />
                 <div class="p-5">
                     <p class="food-item-name font-medium text-center truncate">' . $row["name"] . '</p>
                     <hr class="mt-5" />
@@ -379,7 +379,7 @@
         })();
 
         $(document).ready(function () {
-            $("#search").keyup(function () {
+            $("#search").on("input", function () {
                 var input = $(this).val();
                 input = input.trim();
                 if (input != "") {
