@@ -15,7 +15,16 @@ if ($result->num_rows > 0) {
     if (isset($_POST['orderType']) && isset($_POST['paymentMethod'])) {
         $orderType = $_POST['orderType'];
         $paymentMethod = $_POST['paymentMethod'];
-        $query = "INSERT INTO `transaction_info` (transaction_id, customer_id, order_type, payment_method) VALUES (uuid(), '{$_SESSION['id']}', '{$orderType}', '{$paymentMethod}');";
+
+        $sql = "SELECT SUM(total_price) AS `sum_price` FROM `cart` WHERE `customer_id` = '{$_SESSION['id']}'";
+        $result = $conn->query($sql);
+
+        $row = $result->fetch_assoc();
+        $total_price = $row["sum_price"];
+        $tax = sprintf('%0.2f', $total_price * 0.07);
+        $grand_total = sprintf('%0.2f', $total_price + $tax + 2);
+
+        $query = "INSERT INTO `transaction_info` (transaction_id, customer_id, order_type, payment_method, amount) VALUES (uuid(), '{$_SESSION['id']}', '{$orderType}', '{$paymentMethod}', '{$grand_total}');";
         mysqli_query($conn, $query);
         $query = "SELECT `transaction_id` FROM `transaction_info` ORDER BY `date` DESC LIMIT 1;";
         $result = mysqli_query($conn, $query);

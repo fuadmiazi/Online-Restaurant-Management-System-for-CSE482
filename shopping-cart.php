@@ -183,8 +183,8 @@ if (!isset($_SESSION['id'])) {
                      </div>
                      <div class="flex flex-col items-start gap-2">
                         <p class="font-medium">Quantity</p>
-                        <input class="text-black w-16 rounded h-8" type="number" name="points" step="1" value="' . $row['quantity'] . '"
-                           min="0" />
+                        <input class="quantity-meter text-black w-16 rounded h-8" type="number" name="points" step="1" value="' . $row['quantity'] . '"
+                           min="1" />
                      </div>
                      <div class="flex flex-col items-end gap-2">
                         <p class="font-medium">Total Price</p>
@@ -328,7 +328,19 @@ if (!isset($_SESSION['id'])) {
    ?>
 
    <script>
-      $("#checkout-btn").click(function (event) {   
+
+      $(".quantity-meter").on("change", function () {
+         $.ajax({
+            url: "update-quantity.php",
+            method: "POST",
+            data: {
+               item: $(this).parent().parent().children()[0].children[1].children[0].children[0].innerHTML,
+               quantity: $(this).val()
+            }
+         })
+      })
+
+      $("#checkout-btn").click(function (event) {
 
          if ($(".del-type:checked").val() == "pre-order") {
             $.ajax({

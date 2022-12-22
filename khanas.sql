@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2022 at 12:49 PM
+-- Generation Time: Dec 22, 2022 at 06:20 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -75,6 +75,7 @@ CREATE TABLE `transaction_info` (
   `order_type` varchar(15) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   `payment_method` varchar(20) NOT NULL,
+  `amount` float NOT NULL,
   `delivery_address` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -82,9 +83,10 @@ CREATE TABLE `transaction_info` (
 -- Dumping data for table `transaction_info`
 --
 
-INSERT INTO `transaction_info` (`transaction_id`, `customer_id`, `order_type`, `date`, `payment_method`, `delivery_address`) VALUES
-('79fec9e6-8110-11ed-91c3-7c10c9a046bd', '609b98d3-810a-11ed-8a9a-7c10c9a046bd', 'pre-order', '2022-12-21 15:18:48', 'cash', NULL),
-('8220fb90-8110-11ed-91c3-7c10c9a046bd', '609b98d3-810a-11ed-8a9a-7c10c9a046bd', 'pre-order', '2022-12-21 15:19:02', 'cash', NULL);
+INSERT INTO `transaction_info` (`transaction_id`, `customer_id`, `order_type`, `date`, `payment_method`, `amount`, `delivery_address`) VALUES
+('301201c5-81af-11ed-922e-7c10c9a046bd', '88d6049d-8103-11ed-8a9a-7c10c9a046bd', 'delivery', '2022-12-22 10:14:54', 'cash', 15.38, 'pallabi, mirpur, dhaka - 1216'),
+('a47411a9-81af-11ed-922e-7c10c9a046bd', '88d6049d-8103-11ed-8a9a-7c10c9a046bd', 'pre-order', '2022-12-22 10:18:09', 'cash', 30.89, NULL),
+('f51493db-81ae-11ed-922e-7c10c9a046bd', '88d6049d-8103-11ed-8a9a-7c10c9a046bd', 'pre-order', '2022-12-22 10:13:15', 'cash', 11.63, NULL);
 
 -- --------------------------------------------------------
 
@@ -103,13 +105,16 @@ CREATE TABLE `transaction_items` (
 --
 
 INSERT INTO `transaction_items` (`transaction_id`, `item_name`, `quantity`) VALUES
-('79fec9e6-8110-11ed-91c3-7c10c9a046bd', 'Rafid Cheese Pizza', 1),
-('79fec9e6-8110-11ed-91c3-7c10c9a046bd', 'Quarter Pounder', 1),
-('79fec9e6-8110-11ed-91c3-7c10c9a046bd', 'Chicken Shawrma Wrap', 1),
-('8220fb90-8110-11ed-91c3-7c10c9a046bd', 'Quarter Pounder', 1),
-('8220fb90-8110-11ed-91c3-7c10c9a046bd', 'Strawberry Coffee', 1),
-('8220fb90-8110-11ed-91c3-7c10c9a046bd', 'Chicken Shawrma Wrap', 1),
-('8220fb90-8110-11ed-91c3-7c10c9a046bd', 'Smoky BLT Quarter Pounder', 3);
+('d81a429b-81ae-11ed-922e-7c10c9a046bd', 'Strawberry Coffee', 2),
+('d81a429b-81ae-11ed-922e-7c10c9a046bd', 'Quarter Pounder', 2),
+('f51493db-81ae-11ed-922e-7c10c9a046bd', 'Quarter Pounder', 1),
+('f51493db-81ae-11ed-922e-7c10c9a046bd', 'Rafid Cheese Pizza', 2),
+('0ce75290-81af-11ed-922e-7c10c9a046bd', 'Special Cold Coffee', 1),
+('0ce75290-81af-11ed-922e-7c10c9a046bd', 'Rafid Cheese Pizza', 4),
+('301201c5-81af-11ed-922e-7c10c9a046bd', 'Quarter Pounder', 1),
+('301201c5-81af-11ed-922e-7c10c9a046bd', 'Rafid Cheese Pizza', 3),
+('301201c5-81af-11ed-922e-7c10c9a046bd', 'Special Cold Coffee', 1),
+('a47411a9-81af-11ed-922e-7c10c9a046bd', 'Quarter Pounder', 9);
 
 -- --------------------------------------------------------
 
@@ -131,7 +136,6 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `phone`, `email`, `password`, `image_name`) VALUES
-('609b98d3-810a-11ed-8a9a-7c10c9a046bd', 'rafid2', '1234567', 'rafid2@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'propic.jpg'),
 ('88d6049d-8103-11ed-8a9a-7c10c9a046bd', 'rafid', '12345', 'rafid@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'propic.jpg');
 
 --

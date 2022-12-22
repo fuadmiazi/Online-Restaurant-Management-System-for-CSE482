@@ -249,7 +249,7 @@ if (isset($_GET['logout'])) {
                     <div class="main-filter h-screen bg-black opacity-20 w-[50vw] absolute top-0 left-0 z-50"></div>
                     <img class="w-[50vw] -translate-y-36" src="images/contact-us-img.jpg" alt="" />
                 </div>
-                <div class="flex justify-center items-center flex-col h-[90%]">
+                <form class="flex justify-center items-center flex-col h-[90%]" action="send.php" method="post">
                     <div class="title text-white text-7xl z-50 text-center border-2 w-fit mt-20 mb-6">Contact Us</div>
                     <div class="text-gray-200 text-xl mb-2 font-medium uppercase">let us know your thoughts</div>
                     <div class="h-[2px] w-[180px] bg-white my-1 rounded"></div>
@@ -259,18 +259,18 @@ if (isset($_GET['logout'])) {
                         class="w-[400px] text-justify text-white mb-12 flex flex-col justify-center items-center gap-6">
                         <input
                             class="w-full text-center border-t-transparent border-r-transparent border-l-transparent border-b-2 border-b-white bg-inherit active:outline-none outline-0 focus:border-x-transparent focus:border-t-transparent"
-                            type="text" placeholder="NAME" style="--tw-ring-shadow: none" />
+                            type="text" name="name" placeholder="NAME" style="--tw-ring-shadow: none" />
 
                         <input
                             class="w-full text-center border-t-transparent border-r-transparent border-l-transparent border-b-2 border-b-white bg-inherit active:outline-none outline-0 focus:border-x-transparent focus:border-t-transparent"
-                            type="email" placeholder="EMAIL" style="--tw-ring-shadow: none" />
+                            type="email" name="email" placeholder="EMAIL" style="--tw-ring-shadow: none" />
                         <textarea
                             class="resize-none w-full h-[45px] text-center border-t-transparent border-r-transparent border-l-transparent border-b-2 border-b-white bg-inherit active:outline-none outline-0 focus:border-x-transparent focus:border-t-transparent"
-                            name="" id="" cols="30" rows="10" placeholder="MESSAGE"
+                            name="message" id="" cols="30" rows="10" placeholder="MESSAGE"
                             style="--tw-ring-shadow: none"></textarea>
                     </div>
                     <div class="btns flex gap-5">
-                        <button
+                        <button type="submit" name="send"
                             class="text-white border-2 w-[190px] py-2 uppercase transition-all duration-100 hover:bg-gray-200 hover:bg-opacity-70 hover:font-medium hover:text-neutral-900">
                             Submit
                         </button>
@@ -281,7 +281,7 @@ if (isset($_GET['logout'])) {
                             </button></a>
 
                     </div>
-                </div>
+                </form>
             </div>
         </section>
         <section class="scroll-child h-screen bg-[#282421] w-screen relative z-50" id="popular">
